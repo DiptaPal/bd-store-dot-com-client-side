@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = ({ slider }) => {
     return (
-        <div className="bg-black rounded-md px-6 sm:px-16 xl:px-32 mx-5">
+        <div className="bg-black rounded-md px-6 sm:px-16 xl:px-32">
             <div className='sm:flex justify-between items-center'>
                 <div className='w-full lg:w-1/2 py-16 xl:py-32'>
                     <div className='flex flex-col gap-4 sm:gap-6'>
