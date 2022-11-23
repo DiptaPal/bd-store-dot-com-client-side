@@ -102,8 +102,8 @@ const Registration = () => {
 
 
     return (
-        <div className='flex justify-center items-center my-[8vh] px-4'>
-            <div className='flex flex-col w-full max-w-2xl p-6 space-y-4 text-center shadow-md rounded-md bg-base-200 text-gray-800'>
+        <div className='flex justify-center items-center my-24 px-4'>
+            <div className='flex flex-col w-full max-w-xl p-6 space-y-4 text-center shadow-md rounded-md bg-base-200 text-gray-800'>
                 <h1 className="my-3 text-4xl font-semibold text-center mb-8 text-secondary">Registration</h1>
                 <form onSubmit={handleSubmit(handleRegister)} className='space-y-6'>
                     <div className='space-y-1 text-sm'>
@@ -112,7 +112,7 @@ const Registration = () => {
                             {...register("username", {
                                 required: "Name is required"
                             })}
-                            type='text' placeholder='User Name' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-primary' name='username'
+                            type='text' placeholder='User Name' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='username'
                             aria-invalid={errors.username ? "true" : "false"}
                         />
                         {errors.username && <p className='text-red-600' role="alert">{errors.username?.message}</p>}
@@ -122,14 +122,14 @@ const Registration = () => {
                         <input {...register("email", {
                             required: "Email is required"
                         })}
-                            type='text' placeholder='example@gmail.com' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-primary' name='email'
+                            type='text' placeholder='example@gmail.com' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='email'
                             aria-invalid={errors.email ? "true" : "false"}
                         />
                         {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
                     </div>
 
                     <div className='space-y-1 text-sm'>
-                        <label htmlFor="label" className="text-base font-medium block text-left mb-1">Role</label>
+                        <label htmlFor="label" className="text-base font-medium block text-left mb-1 outline-secondary">Role</label>
                         <select
                             {...register("role")}
                             className="select select-bordered text-xl w-full px-4">
@@ -160,7 +160,7 @@ const Registration = () => {
                                 message: 'Password must be have an uppercase, special character and a number',
                             }
                         })}
-                            type='password' placeholder='Password' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-primary' name='password'
+                            type='password' placeholder='Password' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='password'
                             aria-invalid={errors.password ? "true" : "false"}
                         />
                         {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}

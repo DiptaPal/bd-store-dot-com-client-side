@@ -12,7 +12,6 @@ root.render(
     <AuthProvider>
       <App />
       <Toaster
-        position="top-right"
         reverseOrder={false}
       />
     </AuthProvider>
