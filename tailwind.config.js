@@ -6,8 +6,8 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        doctortheme: {
-          primary: "#0FCFEC",
+        dbstore: {
+          primary: "#0046be",
           secondary: "#19D3AE",
           accent: "#3A4256",
           neutral: "#3d4451",
