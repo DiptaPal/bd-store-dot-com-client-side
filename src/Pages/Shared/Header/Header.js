@@ -43,7 +43,7 @@ const Header = () => {
                             aria-label="home"
                             title="Home"
                             className={({ isActive }) =>
-                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             }
                         >
                             Home
@@ -55,7 +55,7 @@ const Header = () => {
                             aria-label="blog"
                             title="blog"
                             className={({ isActive }) =>
-                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             }
                         >
                             Blog
@@ -63,11 +63,11 @@ const Header = () => {
                     </li>
                     <li>
                         <NavLink
-                            to="/contactUs"
+                            to="/contact"
                             aria-label="Contact Us"
                             title="Contact Us"
                             className={({ isActive }) =>
-                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                             }
                         >
                             Contact Us
@@ -81,7 +81,7 @@ const Header = () => {
                                     aria-label="dashboard"
                                     title="dashboard"
                                     className={({ isActive }) =>
-                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                     }
                                 >
                                     Dashboard
@@ -106,7 +106,7 @@ const Header = () => {
                                     aria-label="Login"
                                     title="Login"
                                     className={({ isActive }) =>
-                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                     }
                                 >
                                     Login
@@ -118,7 +118,7 @@ const Header = () => {
                                     aria-label="registration"
                                     title="registration"
                                     className={({ isActive }) =>
-                                        isActive ? "font-medium bg-primary btn text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        isActive ? "font-medium bg-primary btn text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                     }
                                 >
                                     Registration
@@ -197,7 +197,7 @@ const Header = () => {
                                                 aria-label="Home"
                                                 title="Home"
                                                 className={({ isActive }) =>
-                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 }
                                             >
                                                 Home
@@ -209,7 +209,7 @@ const Header = () => {
                                                 aria-label="blog"
                                                 title="blog"
                                                 className={({ isActive }) =>
-                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 }
                                             >
                                                 Blog
@@ -217,11 +217,11 @@ const Header = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/contactUs"
+                                                to="/contact"
                                                 aria-label="Contact Us"
                                                 title="Contact Us"
                                                 className={({ isActive }) =>
-                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 }
                                             >
                                                 Contact Us
@@ -236,7 +236,7 @@ const Header = () => {
                                                         aria-label="Login"
                                                         title="Login"
                                                         className={({ isActive }) =>
-                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                         }
                                                     >
                                                         Dashboard
@@ -261,7 +261,7 @@ const Header = () => {
                                                         aria-label="Login"
                                                         title="Login"
                                                         className={({ isActive }) =>
-                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                         }
                                                     >
                                                         Login
@@ -273,7 +273,7 @@ const Header = () => {
                                                         aria-label="registration"
                                                         title="registration"
                                                         className={({ isActive }) =>
-                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                         }
                                                     >
                                                         Registration
