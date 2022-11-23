@@ -102,7 +102,7 @@ const Registration = () => {
 
 
     return (
-        <div className='flex justify-center items-center my-24 px-4'>
+        <div className='flex justify-center items-center my-24 px-4 lg:px-0'>
             <div className='flex flex-col w-full max-w-xl p-6 space-y-4 text-center shadow-md rounded-md bg-base-200 text-gray-800'>
                 <h1 className="my-3 text-4xl font-semibold text-center mb-8 text-secondary">Registration</h1>
                 <form onSubmit={handleSubmit(handleRegister)} className='space-y-6'>

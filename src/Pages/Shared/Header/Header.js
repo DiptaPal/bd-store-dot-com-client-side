@@ -19,7 +19,7 @@ const Header = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div className="py-5">
+        <div className="py-5 px-4">
             <div className="relative flex items-center justify-between">
                 <NavLink
                     to="/"
@@ -31,7 +31,7 @@ const Header = () => {
                         <img className='w-10 h-10 object-cover' src={logo} alt="logo" />
                     </div>
                     <div className='mt-1'>
-                        <span className="text-xl font-extrabold tracking-wide text-gray-800 uppercase">
+                        <span className="text-lg sm:text-2xl font-extrabold tracking-wide text-gray-800 uppercase">
                             DB-<span>Store</span>.com
                         </span>
                     </div>
@@ -102,18 +102,6 @@ const Header = () => {
                         <>
                             <li>
                                 <NavLink
-                                    to="/login"
-                                    aria-label="Login"
-                                    title="Login"
-                                    className={({ isActive }) =>
-                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                    }
-                                >
-                                    Login
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
                                     to="/registration"
                                     aria-label="registration"
                                     title="registration"
@@ -122,6 +110,18 @@ const Header = () => {
                                     }
                                 >
                                     Registration
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/login"
+                                    aria-label="Login"
+                                    title="Login"
+                                    className={({ isActive }) =>
+                                        isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                    }
+                                >
+                                    Login
                                 </NavLink>
                             </li>
                         </>
@@ -257,18 +257,6 @@ const Header = () => {
                                             <>
                                                 <li>
                                                     <NavLink
-                                                        to="/login"
-                                                        aria-label="Login"
-                                                        title="Login"
-                                                        className={({ isActive }) =>
-                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                        }
-                                                    >
-                                                        Login
-                                                    </NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink
                                                         to="/registration"
                                                         aria-label="registration"
                                                         title="registration"
@@ -279,6 +267,19 @@ const Header = () => {
                                                         Registration
                                                     </NavLink>
                                                 </li>
+                                                <li>
+                                                    <NavLink
+                                                        to="/login"
+                                                        aria-label="Login"
+                                                        title="Login"
+                                                        className={({ isActive }) =>
+                                                            isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                        }
+                                                    >
+                                                        Login
+                                                    </NavLink>
+                                                </li>
+
                                             </>
                                         }
                                     </ul>
