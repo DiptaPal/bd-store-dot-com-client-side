@@ -13,8 +13,8 @@ const AllBuyers = () => {
         }
     })
 
-    const handleDeletedBuyer = (id) => {
-        fetch(`http://localhost:5000/buyer/${id}`, {
+    const handleDeletedBuyer = (buyer) => {
+        fetch(`http://localhost:5000/buyers/${buyer._id}`, {
             method: 'DELETE',
             // headers: {
             //     authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -23,7 +23,7 @@ const AllBuyers = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.deletedCount > 0) {
-                    toast.success('User Delete Successful')
+                    toast.success(`User ${buyer.name} delete successful`)
                     refetch();
                 }
                 console.log(data);
@@ -60,7 +60,7 @@ const AllBuyers = () => {
                                     <td><img src={buyer.img} className='w-16 h-16 rounded-full' alt="" /></td>
                                     <td>{buyer.name}</td>
                                     <td>{buyer.email}</td>
-                                    <td><button onClick={() => handleDeletedBuyer(buyer._id)} className='btn btn-error text-white'>Delete</button></td>
+                                    <td><button onClick={() => handleDeletedBuyer(buyer)} className='btn btn-error text-white'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>
