@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import { useQuery } from '@tanstack/react-query';
 
 
-const AddProduct = () => {
+const AddAProduct = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContext);
@@ -224,4 +224,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default AddAProduct;

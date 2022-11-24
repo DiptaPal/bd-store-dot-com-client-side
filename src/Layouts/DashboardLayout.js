@@ -7,8 +7,6 @@ import SideNav from '../Pages/Dashboard/SideNav/SideNav';
 
 const DashboardLayout = () => {
     useTitle('Dashboard')
-    const { user } = useContext(AuthContext)
-    // const [isAdmin] = useAdmin(user?.email)
     return (
         <div className="drawer drawer-mobile">
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

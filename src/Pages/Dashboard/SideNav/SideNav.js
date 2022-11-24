@@ -4,10 +4,14 @@ import logo from '../../../assets/logo.png'
 import { AiFillHome, AiFillShopping } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
-import { SiProducthunt } from "react-icons/si";
+import { MdReport,MdLocalGroceryStore } from "react-icons/md";
 import { BiExit, BiCategory } from "react-icons/bi";
+import { BsFillPeopleFill } from "react-icons/bs";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import useAdmin from '../../../Hooks/useAdmin';
+import useSeller from '../../../Hooks/useSeller';
+import useBuyer from '../../../Hooks/useBuyer';
 
 const SideNav = () => {
     const { user, logout } = useContext(AuthContext)
@@ -21,6 +25,10 @@ const SideNav = () => {
             })
             .catch(error => console.log(error))
     }
+
+    const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useSeller(user?.email);
+    const [isBuyer] = useBuyer(user?.email);
 
     return (
         <div className="py-4 w-80 bg-accent flex justify-between gap-6 flex-col">
@@ -43,92 +51,134 @@ const SideNav = () => {
                         <AiFillHome className='text-xl'></AiFillHome>
                         <Link to='/'>Home</Link>
                     </div>
-                    <NavLink
-                        to='/dashboard/allusers'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <FaUserFriends className='text-xl'></FaUserFriends>
-                        <p>All Buyer</p>
-                    </NavLink>
-                    <NavLink
-                        to='/dashboard/allBuyer'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <FaUserFriends className='text-xl'></FaUserFriends>
-                        <p>All Seller</p>
-                    </NavLink>
-                    <NavLink
-                        to='/dashboard/allProducts'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <AiFillShopping className='text-xl'></AiFillShopping>
-                        <p>All Products</p>
-                    </NavLink>
-                    <NavLink
-                        to='/dashboard/myProducts'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <SiProducthunt className='text-xl'></SiProducthunt>
-                        <p>My Product</p>
-                    </NavLink>
-                    <NavLink
-                        to='/dashboard/addProduct'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <IoIosAddCircle className='text-xl'></IoIosAddCircle>
-                        <p>Add Product</p>
-                    </NavLink>
-                    
-                    <NavLink
-                        to='/dashboard/allCategory'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <BiCategory className='text-xl'></BiCategory>
-                        <p>All Category</p>
-                    </NavLink>
+                    {
+                        isBuyer &&
+                        <>
+                            <NavLink
+                                to='/dashboard/myOrder'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <FaUserFriends className='text-xl'></FaUserFriends>
+                                <p>My Order</p>
+                            </NavLink>
+                        </>
+                    }
+                    {
+                        isSeller &&
+                        <>
+                            <NavLink
+                                to='/dashboard/addAProduct'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <FaUserFriends className='text-xl'></FaUserFriends>
+                                <p>Add A Product</p>
+                            </NavLink>
 
-                    <NavLink
-                        to='/dashboard/addCategory'
-                        className={({ isActive }) =>
-                            isActive ?
-                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
-                                :
-                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
-                        }
-                    >
-                        <BiCategory className='text-xl'></BiCategory>
-                        <p>Add Category</p>
-                    </NavLink>
+                            <NavLink
+                                to='/dashboard/myProducts'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <AiFillShopping className='text-xl'></AiFillShopping>
+                                <p>My Products</p>
+                            </NavLink>
+                            <NavLink
+                                to='/dashboard/myBuyers'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <BsFillPeopleFill className='text-xl'></BsFillPeopleFill>
+                                <p>My Buyers</p>
+                            </NavLink>
+                        </>
+                    }
+                    {
+                        isAdmin &&
+                        <>
+                            <NavLink
+                                to='/dashboard/allBuyers'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <BsFillPeopleFill className='text-xl'></BsFillPeopleFill>
+                                <p>All Buyers</p>
+                            </NavLink>
+
+                            <NavLink
+                                to='/dashboard/allSellers'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <BsFillPeopleFill className='text-xl'></BsFillPeopleFill>
+                                <p>All Sellers</p>
+                            </NavLink>
+
+                            <NavLink
+                                to='/dashboard/reportedItems'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <MdReport className='text-xl'></MdReport>
+                                <p>Reported Items</p>
+                            </NavLink>
+
+                            <NavLink
+                                to='/dashboard/allCategory'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <MdLocalGroceryStore className='text-xl'></MdLocalGroceryStore>
+                                <p>All Category</p>
+                            </NavLink>
+
+                            <NavLink
+                                to='/dashboard/addCategory'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <BiCategory className='text-xl'></BiCategory>
+                                <p>Add Category</p>
+                            </NavLink>
+                        </>
+                    }
                 </div>
             </div>
             <div className='flex justify-between items-center px-4 mb-5'>
