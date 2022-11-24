@@ -14,7 +14,7 @@ const Login = () => {
     const [loginUserEmail, setLoginUserEmail] = useState('')
     // const [token] = useToken(loginUserEmail);
 
-    const from =  location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/";
 
     // if(token){
     //     navigate(from, { replace: true });
@@ -52,23 +52,24 @@ const Login = () => {
             })
     }
 
-    const saveUser =  (name, email, role, img) =>{
-        console.log(name, email, role, img);
-        // const user = {
-        //     name,
-        //     email
-        // }
-        // fetch('https://doctors-portal-server-rosy.vercel.app/users', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type' : 'application/json', 
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        // .then(res => res.json())
-        // .then(data =>{
-        //     setLoginUserEmail(email)
-        // })
+    const saveUser = (name, email, role, img) => {
+        const user = {
+            name,
+            email,
+            role,
+            img
+        }
+        fetch('https://doctors-portal-server-rosy.vercel.app/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setLoginUserEmail(email)
+            })
 
     }
 

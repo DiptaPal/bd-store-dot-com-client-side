@@ -48,8 +48,6 @@ const Registration = () => {
                         })
                 }
             })
-
-
     }
 
 
@@ -68,7 +66,7 @@ const Registration = () => {
     }
 
     const handleUpdateProfile = (name, image) => {
-        userProfileUpdate({ displayName: name, photoURL:image })
+        userProfileUpdate({ displayName: name, photoURL: image })
             .then(() => {
 
             })
@@ -79,23 +77,23 @@ const Registration = () => {
     }
 
     const saveUser = (name, email, role, img) => {
-        console.log(name, email, role, img);
-        //     const user = {
-        //         name,
-        //         email,
-        //         role,
-        //     }
-        //     fetch('https://doctors-portal-server-rosy.vercel.app/users', {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type' : 'application/json', 
-        //         },
-        //         body: JSON.stringify(user)
-        //     })
-        //     .then(res => res.json())
-        //     .then(data =>{
-        //         setCreateUserEmail(email)
-        //     })
+        const user = {
+            name,
+            email,
+            role,
+            img
+        }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreateUserEmail(email)
+            })
 
     }
 
@@ -144,7 +142,7 @@ const Registration = () => {
                             {...register("photo", {
                                 required: "Photo is required"
                             })}
-                            type='file' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='photo'
+                            type='file' className='file-input file-input-secondary w-full' name='photo'
                             aria-invalid={errors.photo ? "true" : "false"}
                         />
                         {errors.photo && <p className='text-red-600' role="alert">{errors.photo?.message}</p>}

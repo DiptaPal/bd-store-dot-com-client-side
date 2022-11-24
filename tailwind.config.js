@@ -9,7 +9,7 @@ module.exports = {
         dbstore: {
           primary: "#0046be",
           secondary: "#219ebc",
-          accent: "#3A4256",
+          accent: "#111827",
           neutral: "#3d4451",
           "base-100": "#ffffff",
         },
