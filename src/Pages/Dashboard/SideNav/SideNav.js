@@ -5,7 +5,7 @@ import { AiFillHome, AiFillShopping } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
 import { SiProducthunt } from "react-icons/si";
-import { BiExit } from "react-icons/bi";
+import { BiExit, BiCategory } from "react-icons/bi";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 
@@ -23,7 +23,7 @@ const SideNav = () => {
     }
 
     return (
-        <div className="py-4 w-80 bg-accent flex justify-between flex-col">
+        <div className="py-4 w-80 bg-accent flex justify-between gap-6 flex-col">
             <div>
                 <Link className='inline-flex items-center pl-6'>
                     <div>
@@ -56,7 +56,7 @@ const SideNav = () => {
                         <p>All Buyer</p>
                     </NavLink>
                     <NavLink
-                        to='/dashboard/allbuyer'
+                        to='/dashboard/allBuyer'
                         className={({ isActive }) =>
                             isActive ?
                                 "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
@@ -68,7 +68,7 @@ const SideNav = () => {
                         <p>All Seller</p>
                     </NavLink>
                     <NavLink
-                        to='/dashboard/allproducts'
+                        to='/dashboard/allProducts'
                         className={({ isActive }) =>
                             isActive ?
                                 "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
@@ -80,7 +80,7 @@ const SideNav = () => {
                         <p>All Products</p>
                     </NavLink>
                     <NavLink
-                        to='/dashboard/myproducts'
+                        to='/dashboard/myProducts'
                         className={({ isActive }) =>
                             isActive ?
                                 "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
@@ -92,7 +92,7 @@ const SideNav = () => {
                         <p>My Product</p>
                     </NavLink>
                     <NavLink
-                        to='/dashboard/addproduct'
+                        to='/dashboard/addProduct'
                         className={({ isActive }) =>
                             isActive ?
                                 "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
@@ -102,6 +102,32 @@ const SideNav = () => {
                     >
                         <IoIosAddCircle className='text-xl'></IoIosAddCircle>
                         <p>Add Product</p>
+                    </NavLink>
+                    
+                    <NavLink
+                        to='/dashboard/allCategory'
+                        className={({ isActive }) =>
+                            isActive ?
+                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                :
+                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                        }
+                    >
+                        <BiCategory className='text-xl'></BiCategory>
+                        <p>All Category</p>
+                    </NavLink>
+
+                    <NavLink
+                        to='/dashboard/addCategory'
+                        className={({ isActive }) =>
+                            isActive ?
+                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                :
+                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                        }
+                    >
+                        <BiCategory className='text-xl'></BiCategory>
+                        <p>Add Category</p>
                     </NavLink>
                 </div>
             </div>

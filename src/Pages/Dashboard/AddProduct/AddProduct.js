@@ -1,18 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../contexts/AuthProvider';
+import { format } from 'date-fns';
+import { useQuery } from '@tanstack/react-query';
 
 
 const AddProduct = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const imageHostKey = process.env.REACT_APP_imgbb_key;
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const handleRegister = data => {
+    const { data: categories = [] } = useQuery({
+        queryKey: ['categories'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/categories')
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    const handleProduct = data => {
 
         //host image in imgBB
         const image = data.photo[0];
@@ -34,12 +45,13 @@ const AddProduct = () => {
                         phoneNumber: data.phone,
                         productImage: imageData.data.url,
                         location: data.location,
-                        category: data.category,
                         quality: data.quality,
+                        categoryName: data.category,
                         resalePrice: data.resaleprice,
-                        originalPrice: data.originalPrice,
+                        originalPrice: data.originalprice,
                         yearsOfUsed: data.usedyear,
-                        description: data.description
+                        description: data.description,
+                        date: format(new Date(), 'PP')
                     }
 
                     fetch('http://localhost:5000/products', {
@@ -73,7 +85,7 @@ const AddProduct = () => {
             </div>
             <div className='flex justify-center items-center my-16 px-4 lg:px-0'>
                 <div className='flex flex-col w-full max-w-4xl p-6 space-y-4 text-center shadow-md rounded-md bg-base-200 text-gray-800 mx-2 sm:mx-5'>
-                    <form onSubmit={handleSubmit(handleRegister)} className='space-y-6'>
+                    <form onSubmit={handleSubmit(handleProduct)} className='space-y-6'>
 
                         <div className='space-y-1 text-sm'>
                             <label htmlFor="productname" className="text-base font-medium block text-left">Product Name</label>
@@ -127,12 +139,21 @@ const AddProduct = () => {
                             <div className='w-full md:w-1/2'>
                                 <label htmlFor="category" className="text-base font-medium block text-left mb-1 outline-secondary">Product Category</label>
                                 <select
-                                    {...register("category")}
+                                    {...register("category",{
+                                        required: "Product category is required"
+                                    })}
                                     className="select select-bordered text-xl w-full px-4">
-                                    <option value='hp'>HP</option>
-                                    <option value='dell'>Dell</option>
-                                    <option value='apple'>Apple</option>
-                                    <option value='lenovo'>Lenovo</option>
+                                    {
+                                        categories.map((cat, i) =>
+                                            <option
+                                                key={i}
+                                                value={cat.categoryName}
+                                                className='capitalize'
+                                            >
+                                                {cat.categoryName}
+                                            </option>
+                                        )
+                                    }
                                 </select>
                             </div>
                             <div className='w-full md:w-1/2'>

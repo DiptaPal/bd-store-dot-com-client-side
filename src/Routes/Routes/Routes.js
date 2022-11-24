@@ -3,8 +3,10 @@ import DashboardLayout from "../../Layouts/DashboardLayout";
 import Main from "../../Layouts/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Contact from "../../Pages/Contact/Contact";
+import AddCategory from "../../Pages/Dashboard/AddCategory/AddCategory";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
+import AllCategory from "../../Pages/Dashboard/AllCategory/AllCategory";
 import MyProducts from "../../Pages/Dashboard/MyProduct/MyProducts";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
@@ -46,16 +48,24 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/dashboard/allusers',
+                path: '/dashboard/allUsers',
                 element: <AllBuyer></AllBuyer>
             },
             {
-                path: '/dashboard/addproduct',
+                path: '/dashboard/addProduct',
                 element: <AddProduct></AddProduct>
             },
             {
                 path: '/dashboard/myProducts',
                 element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/dashboard/addCategory',
+                element: <AddCategory></AddCategory>
+            },
+            {
+                path: '/dashboard/allCategory',
+                element: <AllCategory></AllCategory>
             }
         ]
     }
