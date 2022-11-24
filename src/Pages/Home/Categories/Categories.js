@@ -1,14 +1,12 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import slider2 from '../../../assets/Slider/2.png'
-import slider3 from '../../../assets/Slider/3.png'
-import slider4 from '../../../assets/Slider/4.png'
+import slider2 from '../../../assets/Category/Apple-logo.png'
+import slider3 from '../../../assets/Category/dell-logo.png'
+import slider4 from '../../../assets/Category/hp-logo.jpg'
 import Category from '../Category/Category';
 
-const heroData = [
+const categories = [
     {
         image: slider2,
         id: '02'
@@ -24,31 +22,22 @@ const heroData = [
 ]
 const Categories = () => {
     return (
-        <div className='mt-44'>
+        <div className='mt-44 mb-32'>
             <h1 className='text-2xl font-bold text-center uppercase'>All Categories</h1>
             <hr className='w-56 bg-primary pt-1 mx-auto' />
             <div className='mt-10'>
-                <Swiper
-                    autoplay={{
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    }}
-                    speed={1000}
-                    loop={true}
-                    navigation={true}
-                    modules={[Autoplay, Navigation]}
-                    className="">
-
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-wrap">
                     {
-                        heroData.map(slider =>
-                            <SwiperSlide key={slider.id} >
-                                <Category slider={slider}>
+                        categories.map(slider =>
+                            <Category
+                                key={slider.id}
+                                slider={slider}>
 
-                                </Category>
-                            </SwiperSlide>
+                            </Category>
                         )
                     }
-                </Swiper>
+                </div>
             </div>
         </div>
     );

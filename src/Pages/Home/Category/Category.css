@@ -1,0 +1,7 @@
+.cd-body{
+    right: -100%;
+    transition: 0.8s;
+}
+.cd:hover .cd-body{
+    right: 0;
+}

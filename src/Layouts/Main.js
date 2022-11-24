@@ -6,7 +6,9 @@ import Header from '../Pages/Shared/Header/Header';
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+            <div className='max-w-[1440px] mx-auto'>
+                <Header></Header>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
             <ScrollRestoration />

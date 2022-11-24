@@ -7,8 +7,10 @@ const Home = () => {
     useTitle('Home')
     return (
         <div className='mx-5'>
-            <Heros></Heros>
-            <Categories></Categories>
+            <div className='max-w-[1440px] mx-auto'>
+                <Heros></Heros>
+                <Categories></Categories>
+            </div>
         </div>
     );
 };
