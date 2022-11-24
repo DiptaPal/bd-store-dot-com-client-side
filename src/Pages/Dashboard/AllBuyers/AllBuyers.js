@@ -1,8 +1,10 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import Loader from '../../Shared/Loader/Loader';
+import toast from 'react-hot-toast';
 
 const AllBuyers = () => {
-    const { data: buyers = [], refetch } = useQuery({
+    const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/buyers')
@@ -10,6 +12,29 @@ const AllBuyers = () => {
             return data;
         }
     })
+
+    const handleDeletedBuyer = (id) => {
+        fetch(`http://localhost:5000/buyer/${id}`, {
+            method: 'DELETE',
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+            // }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0) {
+                    toast.success('User Delete Successful')
+                    refetch();
+                }
+                console.log(data);
+            })
+    }
+    if (isLoading) {
+        <Loader></Loader>
+    }
+
+
+
     return (
         <div>
             <div className='px-10'>
@@ -22,7 +47,6 @@ const AllBuyers = () => {
                                 <th>Buyer Profile</th>
                                 <th>Buyer Name</th>
                                 <th>Email</th>
-                                <th>Verification</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,8 +60,7 @@ const AllBuyers = () => {
                                     <td><img src={buyer.img} className='w-16 h-16 rounded-full' alt="" /></td>
                                     <td>{buyer.name}</td>
                                     <td>{buyer.email}</td>
-                                    <td><button className='btn btn-success text-white'>Verify</button></td>
-                                    <td><button className='btn btn-error text-white'>Delete</button></td>
+                                    <td><button onClick={() => handleDeletedBuyer(buyer._id)} className='btn btn-error text-white'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>

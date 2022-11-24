@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../../assets/logo.png'
 import { AiFillHome, AiFillShopping } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
-import { IoIosAddCircle } from "react-icons/io";
 import { MdReport,MdLocalGroceryStore } from "react-icons/md";
 import { BiExit, BiCategory } from "react-icons/bi";
 import { BsFillPeopleFill } from "react-icons/bs";
@@ -80,7 +79,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <FaUserFriends className='text-xl'></FaUserFriends>
+                                <AiFillShopping className='text-xl'></AiFillShopping>
                                 <p>Add A Product</p>
                             </NavLink>
 

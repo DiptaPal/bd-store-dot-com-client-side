@@ -1,18 +1,42 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
+import Loader from '../../Shared/Loader/Loader';
 
 const AllSellers = () => {
-    const { data: sellers=[], refetch } = useQuery({
+    const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/sellers')
-            const data = await res.json();
-            return data;
+            try {
+                const res = await fetch('http://localhost:5000/sellers')
+
+                const data = await res.json();
+                return data;
+            }
+            catch (error) {
+
+            }
         }
     })
 
-    const handleDeleted = () =>{
-
+    const handleDeletedSeller = (seller) => {
+        fetch(`http://localhost:5000/sellers/${seller._id}`, {
+            method: 'DELETE',
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+            // }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0) {
+                    toast.success(`Seller ${seller.name} delete successful`)
+                    refetch();
+                }
+                console.log(data);
+            })
+    }
+    if (isLoading) {
+        <Loader></Loader>
     }
 
     return (
@@ -42,7 +66,7 @@ const AllSellers = () => {
                                     <td>{seller.name}</td>
                                     <td>{seller.email}</td>
                                     <td><button className='btn btn-success text-white'>Verify</button></td>
-                                    <td><button onClick={() =>handleDeleted(seller._id)} className='btn btn-error text-white'>Delete</button></td>
+                                    <td><button onClick={() => handleDeletedSeller(seller)} className='btn btn-error text-white'>Delete</button></td>
                                 </tr>)
                             }
                         </tbody>
