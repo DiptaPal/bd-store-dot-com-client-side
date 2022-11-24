@@ -2,6 +2,7 @@ import React from 'react';
 import useTitle from '../../../Hooks/useTitle';
 import Categories from '../Categories/Categories';
 import Heros from '../Heros/Heros';
+import Service from '../Service/Service';
 
 const Home = () => {
     useTitle('Home')
@@ -10,6 +11,7 @@ const Home = () => {
             <div className='max-w-[1440px] mx-auto'>
                 <Heros></Heros>
                 <Categories></Categories>
+                <Service></Service>
             </div>
         </div>
     );
