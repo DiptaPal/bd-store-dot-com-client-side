@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     useTitle('Login');
@@ -12,13 +13,13 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [loginUserEmail, setLoginUserEmail] = useState('')
-    // const [token] = useToken(loginUserEmail);
+    const [token] = useToken(loginUserEmail);
 
     const from = location.state?.from?.pathname || "/";
 
-    // if(token){
-    //     navigate(from, { replace: true });
-    // }
+    if(token){
+        navigate(from, { replace: true });
+    }
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn, singInWithGoogle, passwordReset } = useContext(AuthContext);
@@ -44,6 +45,7 @@ const Login = () => {
                 const user = result.user;
                 toast.success('Login Successful')
                 saveUser(user.displayName, user.email, 'buyer', user.photoURL);
+                setLoginUserEmail(user.email)
                 // navigate(from, { replace: true });
             })
             .catch(error => {
@@ -68,7 +70,7 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setLoginUserEmail(email)
+                
             })
 
     }

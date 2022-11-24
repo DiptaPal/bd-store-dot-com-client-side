@@ -51,6 +51,18 @@ const Header = () => {
                     </li>
                     <li>
                         <NavLink
+                            to="/products"
+                            aria-label="products"
+                            title="products"
+                            className={({ isActive }) =>
+                                isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            }
+                        >
+                           All Product
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
                             to="/blog"
                             aria-label="blog"
                             title="blog"
@@ -198,6 +210,18 @@ const Header = () => {
                                                 }
                                             >
                                                 Home
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/products"
+                                                aria-label="products"
+                                                title="products"
+                                                className={({ isActive }) =>
+                                                    isActive ? "font-medium btn bg-primary text-white tracking-wide transition-colors duration-200 hover:bg-primary hover:text-deep-purple-accent-400" : "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                }
+                                            >
+                                               All Product
                                             </NavLink>
                                         </li>
                                         <li>

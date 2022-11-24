@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { useForm } from "react-hook-form";
 import useTitle from '../../Hooks/useTitle';
+import useToken from '../../Hooks/useToken';
 
 const Registration = () => {
     useTitle('Register')
@@ -11,12 +12,12 @@ const Registration = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, userProfileUpdate, singInWithGoogle } = useContext(AuthContext);
     const [createdUserEmail, setCreateUserEmail] = useState('');
-    // const [token] = useToken(createdUserEmail);
+    const [token] = useToken(createdUserEmail);
 
     const navigate = useNavigate();
-    // if(token){
-    //     navigate('/')
-    // }
+    if(token){
+        navigate('/')
+    }
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 
     const handleRegister = data => {

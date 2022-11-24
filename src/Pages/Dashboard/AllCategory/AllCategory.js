@@ -10,7 +10,6 @@ const AllCategory = () => {
             return data;
         }
     })
-    console.log(categories);
 
     return (
         <div>
