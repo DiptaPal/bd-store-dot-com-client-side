@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Product from '../Product/Product';
 import Loader from '../Shared/Loader/Loader';
+import BookingModal from '../Shared/BookingModal/BookingModal';
 
 const AllProduct = () => {
+    const [bookingProduct, setBookingProduct] = useState(null)
+
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
@@ -13,9 +16,10 @@ const AllProduct = () => {
         }
     })
 
-    if(isLoading){
-        <Loader></Loader>
+    if (isLoading) {
+        return <Loader></Loader>
     }
+    
     return (
         <div className='mx-5 my-10'>
             <h1 className='text-2xl font-bold text-center uppercase'>Category: All</h1>
@@ -25,9 +29,17 @@ const AllProduct = () => {
                     products.map(product => <Product
                         key={product._id}
                         product={product}
+                        setBookingProduct={setBookingProduct}
                     ></Product>)
                 }
             </div>
+            {
+                bookingProduct && 
+                <BookingModal
+                    bookingProduct={bookingProduct}
+                    setBookingProduct={setBookingProduct}
+                ></BookingModal>
+            }
         </div>
     );
 };

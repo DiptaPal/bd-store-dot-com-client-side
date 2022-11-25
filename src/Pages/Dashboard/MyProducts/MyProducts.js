@@ -2,6 +2,22 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const MyProducts = () => {
+
+    // const { data: myOrders = [], isLoading } = useQuery({
+    //     queryKey: ['myOrders'],
+    //     queryFn: async () => {
+    //         const res = await fetch(`http://localhost:5000/myOrders?email=${user.email}`)
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // })
+
+    // if(isLoading){
+    //     return <Loader></Loader>
+    // }
+
+
+    
     const { data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
