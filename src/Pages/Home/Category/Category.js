@@ -1,12 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Category.css'
 
 const Category = ({ category }) => {
-
-    const {id, categoryImage, categoryName} = category
-
+    const {_id, categoryImage} = category
     return (
-        <div to='/product/' className="cd w-full h-64 relative overflow-hidden cursor-pointer border-2">
+        <Link to={`/categoryProducts/${_id}`} className="cd w-full h-64 relative overflow-hidden cursor-pointer  shadow-lg border-2">
             <div className='flex justify-center items-center'>
                 <img src={categoryImage} className='w-64 h-64 object-cover p-3 rounded-full object-center' alt="Shoes" />
             </div>
@@ -15,7 +14,7 @@ const Category = ({ category }) => {
                     <button className='btn bg-primary hover:bg-primary border-none text-2xl'>Go Now</button>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

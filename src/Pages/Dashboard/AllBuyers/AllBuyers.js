@@ -26,7 +26,6 @@ const AllBuyers = () => {
                     toast.success(`User ${buyer.name} delete successful`)
                     refetch();
                 }
-                console.log(data);
             })
     }
     if (isLoading) {

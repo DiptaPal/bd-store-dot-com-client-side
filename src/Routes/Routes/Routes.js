@@ -21,20 +21,26 @@ import MyBuyers from "../../Pages/Dashboard/MyBuyers/MyBuyers";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import BuyerRoute from "../BuyerRoute/BuyerRoute";
+import CategoryProducts from "../../Pages/Home/CategoryProducts/CategoryProducts";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
                 path: '/',
                 element: <Home></Home>
             },
             {
                 path: '/products',
-                element: <AllProduct></AllProduct>
+                element: <PrivateRoute><AllProduct></AllProduct></PrivateRoute>
+            },
+            {
+                path: '/categoryProducts/:id',
+                element: <CategoryProducts></CategoryProducts>,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/blog',

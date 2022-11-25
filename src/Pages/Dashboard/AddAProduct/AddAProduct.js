@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -46,14 +46,13 @@ const AddAProduct = () => {
                         productImage: imageData.data.url,
                         location: data.location,
                         quality: data.quality,
-                        categoryName: data.category,
+                        categoryId: data.category,
                         resalePrice: data.resaleprice,
                         originalPrice: data.originalprice,
                         yearsOfUsed: data.usedyear,
                         description: data.description,
                         date: format(new Date(), 'PP')
                     }
-
                     fetch('http://localhost:5000/products', {
                         method: 'POST',
                         headers: {
@@ -147,7 +146,7 @@ const AddAProduct = () => {
                                         categories.map((cat, i) =>
                                             <option
                                                 key={i}
-                                                value={cat.categoryName}
+                                                value={cat._id}
                                                 className='capitalize'
                                             >
                                                 {cat.categoryName}

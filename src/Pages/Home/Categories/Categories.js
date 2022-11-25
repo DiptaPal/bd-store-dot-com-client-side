@@ -17,13 +17,12 @@ const Categories = () => {
             <hr className='w-56 bg-primary pt-1 mx-auto' />
             <div className='mt-10'>
                 <div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-wrap">
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 flex-wrap">
                     {
                         categories.map(category =>
                             <Category
                                 key={category._id}
                                 category={category}>
-
                             </Category>
                         )
                     }

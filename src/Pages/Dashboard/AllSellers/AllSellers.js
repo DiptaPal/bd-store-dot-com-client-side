@@ -32,7 +32,6 @@ const AllSellers = () => {
                     toast.success(`Seller ${seller.name} delete successful`)
                     refetch();
                 }
-                console.log(data);
             })
     }
     if (isLoading) {

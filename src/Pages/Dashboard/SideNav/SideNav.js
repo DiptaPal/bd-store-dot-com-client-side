@@ -30,7 +30,7 @@ const SideNav = () => {
     const [isBuyer] = useBuyer(user?.email);
 
     return (
-        <div className="py-4 w-80 bg-accent flex justify-between gap-6 flex-col">
+        <div className="pt-4 w-80 bg-accent flex justify-between gap-6 flex-col">
             <div>
                 <Link className='inline-flex items-center pl-6'>
                     <div>
@@ -180,16 +180,19 @@ const SideNav = () => {
                     }
                 </div>
             </div>
-            <div className='flex justify-between items-center px-4 mb-5'>
-                <div className='flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-between items-center px-2'>
+                <div className='w-full py-4 flex flex-col justify-center items-center border-2 border-secondary rounded-md'>
                     <div>
                         <img src={user?.photoURL} className='w-14 h-14 rounded-full border-2 border-secondary' alt="" />
                     </div>
                     <div className='text-white text-center'>
                         <p>{user?.displayName}</p>
                     </div>
+                    <div className='text-white text-center text-base'>
+                        <p>{user?.email}</p>
+                    </div>
                 </div>
-                <button onClick={handleLogout} className='btn btn-outline btn-error'>
+                <button onClick={handleLogout} className='w-full btn btn-outline btn-error mt-2'>
                     <BiExit className='text-lg'></BiExit>
                     <p className='pl-2'>Logout</p>
                 </button>
