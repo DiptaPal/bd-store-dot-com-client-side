@@ -22,6 +22,8 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import CategoryProducts from "../../Pages/Home/CategoryProducts/CategoryProducts";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -66,8 +68,17 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
                 path: '/dashboard/myOrder',
                 element: <BuyerRoute><MyOrder></MyOrder></BuyerRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/myOrder/${params.id}`)
             },
             {
                 path: '/dashboard/addAProduct',

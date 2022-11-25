@@ -3,20 +3,16 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../../assets/logo.png'
 import { AiFillHome, AiFillShopping } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
-import { MdReport, MdLocalGroceryStore } from "react-icons/md";
+import { MdReport, MdLocalGroceryStore, MdDashboardCustomize } from "react-icons/md";
 import { BiExit, BiCategory } from "react-icons/bi";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AuthContext } from '../../../contexts/AuthProvider';
-import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { GoVerified } from "react-icons/go";
 import useAdmin from '../../../Hooks/useAdmin';
 import useSeller from '../../../Hooks/useSeller';
 import useBuyer from '../../../Hooks/useBuyer';
-import Loader from '../../Shared/Loader/Loader';
 
 const SideNav = () => {
-
     const { user, logout } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleLogout = () => {
@@ -32,19 +28,6 @@ const SideNav = () => {
     const [isAdmin] = useAdmin(user?.email)
     const [isSeller] = useSeller(user?.email);
     const [isBuyer] = useBuyer(user?.email);
-
-    const { data: userProfile = [], isLoading } = useQuery({
-        queryKey: ['myProducts'],
-        queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/user/${user?.email}`)
-            const data = await res.json();
-            return data;
-        }
-    })
-
-    if (isLoading) {
-        return <Loader></Loader>
-    }
 
     return (
         <div className="pt-4 w-80 bg-accent flex justify-between gap-6 flex-col">
@@ -67,6 +50,18 @@ const SideNav = () => {
                         <AiFillHome className='text-xl'></AiFillHome>
                         <p>Home</p>
                     </Link>
+                    <NavLink
+                        to='/dashboard'
+                        className={({ isActive }) =>
+                            isActive ?
+                                "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                :
+                                "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                        }
+                    >
+                        <MdDashboardCustomize className='text-xl'></MdDashboardCustomize>
+                        <p>Dashboard</p>
+                    </NavLink>
                     {
                         isBuyer &&
                         <>
@@ -200,23 +195,13 @@ const SideNav = () => {
             <div className='flex flex-col justify-between items-center px-2'>
                 <div className='w-full py-4 flex flex-col justify-center items-center border-2 border-secondary rounded-md'>
                     <div>
-                        <img src={userProfile.img} className='w-14 h-14 rounded-full border-2 border-secondary' alt="" />
+                        <img src={user?.photoURL} className='w-14 h-14 rounded-full border-2 border-secondary' alt="" />
                     </div>
-                    
-                    <p className='flex items-center gap-2'>
-                        <span className='text-white'>{userProfile.name}</span>
-                        <span>
-                            {
-                                userProfile.role === 'seller' && userProfile.verified ?
-                                    <GoVerified className='text-sky-500 text-xl'> </GoVerified>
-                                    :
-                                    ''
-                            }
-                        </span>
-                    </p>
-
+                    <div className='text-white text-center'>
+                        <p>{user?.displayName}</p>
+                    </div>
                     <div className='text-white text-center text-base'>
-                        <p>{userProfile.email}</p>
+                        <p>{user?.email}</p>
                     </div>
                 </div>
                 <button onClick={handleLogout} className='w-full btn btn-outline btn-error mt-2'>

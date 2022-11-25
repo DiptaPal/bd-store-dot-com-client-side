@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Loader from '../../Shared/Loader/Loader';
 import toast from 'react-hot-toast';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
+
 
 const AllBuyers = () => {
+
+    const [deletingBuyer, setDeletingBuyer] = useState(null);
+    const closeModal = () => {
+        setDeletingBuyer(null);
+    }
+
     const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
@@ -14,6 +22,7 @@ const AllBuyers = () => {
     })
 
     const handleDeletedBuyer = (buyer) => {
+        console.log(buyer);
         fetch(`http://localhost:5000/buyers/${buyer.email}`, {
             method: 'DELETE',
             // headers: {
@@ -31,8 +40,6 @@ const AllBuyers = () => {
     if (isLoading) {
         <Loader></Loader>
     }
-
-
 
     return (
         <div>
@@ -59,13 +66,25 @@ const AllBuyers = () => {
                                     <td><img src={buyer.img} className='w-16 h-16 rounded-full' alt="" /></td>
                                     <td>{buyer.name}</td>
                                     <td>{buyer.email}</td>
-                                    <td><button onClick={() => handleDeletedBuyer(buyer)} className='btn btn-error text-white'>Delete</button></td>
+                                    <td><label htmlFor="confirmation-modal"
+                                    onClick={() => setDeletingBuyer(buyer)} className='btn btn-error text-white'>Delete</label></td>
                                 </tr>)
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
+            {
+                deletingBuyer && 
+                <ConfirmationModal
+                title={`Are you sure you want to delete?`}
+                message={`If you delete ${deletingBuyer.name}. It cannot be undone.`}
+                modalData={deletingBuyer}
+                successAction={handleDeletedBuyer}
+                closeModal={closeModal}
+                successButtonName='Delete'
+                ></ConfirmationModal>
+            }
         </div>
     );
 };

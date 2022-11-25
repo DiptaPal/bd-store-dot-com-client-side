@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import Loader from '../../Shared/Loader/Loader';
+import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 
 const AllSellers = () => {
+    const [deletingSeller, setDeletingSeller] = useState(null);
+    const closeModal = () => {
+        setDeletingSeller(null);
+    }
     const { data: sellers = [], isLoading, refetch } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
@@ -93,13 +98,24 @@ const AllSellers = () => {
 
                                     }
 
-                                    <td><button onClick={() => handleDeletedSeller(seller)} className='btn btn-error text-white'>Delete</button></td>
+                                    <td><label htmlFor="confirmation-modal" onClick={() => setDeletingSeller(seller)} className='btn btn-error text-white'>Delete</label></td>
                                 </tr>)
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
+            {
+                deletingSeller && 
+                <ConfirmationModal
+                title={`Are you sure you want to delete?`}
+                message={`If you delete ${deletingSeller.name}. It cannot be undone.`}
+                modalData={deletingSeller}
+                successAction={handleDeletedSeller}
+                closeModal={closeModal}
+                successButtonName='Delete'
+                ></ConfirmationModal>
+            }
         </div>
     );
 };
