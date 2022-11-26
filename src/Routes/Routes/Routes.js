@@ -25,6 +25,7 @@ import CategoryProducts from "../../Pages/Home/CategoryProducts/CategoryProducts
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
 import EditProduct from "../../Pages/Dashboard/EditProduct/EditProduct";
+import MyWishlist from "../../Pages/Dashboard/MyWishlist/MyWishlist";
 
 export const router = createBrowserRouter([
     {
@@ -77,9 +78,18 @@ export const router = createBrowserRouter([
                 element: <BuyerRoute><MyOrder></MyOrder></BuyerRoute>
             },
             {
+                path: '/dashboard/myWishlist',
+                element: <BuyerRoute><MyWishlist></MyWishlist></BuyerRoute>
+            },
+            {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
                 loader: ({params}) => fetch(`http://localhost:5000/myOrder/${params.id}`)
+            },
+            {
+                path: '/dashboard/wishlist/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({params}) => fetch(`http://localhost:5000/wishlists/${params.id}`)
             },
             {
                 path: '/dashboard/addAProduct',

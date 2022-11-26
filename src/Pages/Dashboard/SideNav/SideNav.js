@@ -5,7 +5,7 @@ import { AiFillHome, AiFillShopping } from "react-icons/ai";
 import { FaUserFriends } from "react-icons/fa";
 import { MdReport, MdLocalGroceryStore, MdDashboardCustomize } from "react-icons/md";
 import { BiExit, BiCategory } from "react-icons/bi";
-import { BsFillPeopleFill } from "react-icons/bs";
+import { BsFillPeopleFill, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 import useAdmin from '../../../Hooks/useAdmin';
@@ -76,6 +76,18 @@ const SideNav = () => {
                             >
                                 <FaUserFriends className='text-xl'></FaUserFriends>
                                 <p>My Order</p>
+                            </NavLink>
+                            <NavLink
+                                to='/dashboard/myWishlist'
+                                className={({ isActive }) =>
+                                    isActive ?
+                                        "flex items-center gap-3 text-white border-white border-l-4 px-6 py-2"
+                                        :
+                                        "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
+                                }
+                            >
+                                <BsFillBookmarkHeartFill className='text-xl'></BsFillBookmarkHeartFill>
+                                <p>My Wishlist</p>
                             </NavLink>
                         </>
                     }

@@ -1,17 +1,56 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsHeartFill } from "react-icons/bs";
 import { MdReport } from "react-icons/md";
 import { GoVerified } from "react-icons/go";
 import { MdLocationOn } from "react-icons/md";
+import { AuthContext } from '../../contexts/AuthProvider';
+import { format } from 'date-fns';
+import toast from 'react-hot-toast';
 
 const Product = ({ product, setBookingProduct, setReportedProduct }) => {
     const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified } = product;
+
+    const { user } = useContext(AuthContext)
+
+    const date = format(new Date(), 'PP');
+
+    const handleWishlists = product => {
+        const wishlists = {
+            wishDate: date,
+            productId: product._id,
+            productName: product.productName,
+            productImage: product.productImage,
+            productPrice: product.resalePrice,
+            customerName: user.displayName,
+            customerEmail: user.email,
+            customerPhotoNo: user.photoURL,
+        }
+
+        fetch('http://localhost:5000/wishlists', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(wishlists)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Product added successfully')
+                    setBookingProduct(null)
+                }
+                else {
+                    toast.error(data.message);
+                }
+            })
+    }
+
     return (
         <div className="card relative bg-base-100 shadow-xl">
             <figure><img src={productImage} alt="" /></figure>
             <div className="card-body">
                 <div className="card-actions justify-end items-center">
-                    <button className="text-secondary text-3xl">
+                    <button onClick={() => handleWishlists(product)} className="text-secondary text-3xl">
                         <BsHeartFill></BsHeartFill>
                     </button>
                     <label htmlFor='report-modal' title='Report' onClick={() => setReportedProduct(product)} className="text-yellow-500 text-4xl cursor-pointer">
@@ -29,7 +68,7 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
 
                 <div className='flex flex-col sm:flex-row justify-between sm:items-center gap-2 flex-wrap'>
                     <p className='flex gap-2 items-center'>
-                        <MdLocationOn className='text-2xl'></MdLocationOn> 
+                        <MdLocationOn className='text-2xl'></MdLocationOn>
                         <span>{location}</span>
                     </p>
                     <div className='flex items-center gap-2 sm:justify-end'>
