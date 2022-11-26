@@ -1,7 +1,4 @@
 import React from 'react';
-import { BsHeartFill } from "react-icons/bs";
-import { MdReport } from "react-icons/md";
-import { GoVerified } from "react-icons/go";
 
 const MakeAdvertise = ({ adProduct }) => {
 

@@ -22,7 +22,6 @@ const AllBuyers = () => {
     })
 
     const handleDeletedBuyer = (buyer) => {
-        console.log(buyer);
         fetch(`http://localhost:5000/buyers/${buyer.email}`, {
             method: 'DELETE',
             // headers: {
@@ -46,7 +45,7 @@ const AllBuyers = () => {
             <div className='px-10'>
                 <h3 className='text-3xl m-7'>My Buyers</h3>
                 <div className="overflow-x-auto">
-                    <table className="table w-full">
+                    <table className="table w-full text-center">
                         <thead>
                             <tr>
                                 <th></th>
@@ -63,7 +62,7 @@ const AllBuyers = () => {
                                     className={`cursor-pointer ${i % 2 === 1 ? 'hover' : ''}`}
                                 >
                                     <th>{i + 1}</th>
-                                    <td><img src={buyer.img} className='w-16 h-16 rounded-full' alt="" /></td>
+                                    <td><img src={buyer.img} className='w-16 h-16 rounded-full mx-auto' alt="" /></td>
                                     <td>{buyer.name}</td>
                                     <td>{buyer.email}</td>
                                     <td><label htmlFor="confirmation-modal"

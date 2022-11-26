@@ -68,7 +68,7 @@ const AllSellers = () => {
             <div className='px-10'>
                 <h3 className='text-3xl m-7'>My Sellers</h3>
                 <div className="overflow-x-auto">
-                    <table className="table w-full">
+                    <table className="table w-full text-center">
                         <thead>
                             <tr>
                                 <th></th>
@@ -86,7 +86,7 @@ const AllSellers = () => {
                                     className={`${i % 2 === 1 ? 'hover' : ''}`}
                                 >
                                     <th>{i + 1}</th>
-                                    <td><img src={seller.img} className='w-16 h-16 rounded-full' alt="" /></td>
+                                    <td><img src={seller.img} className='w-16 h-16 rounded-full mx-auto' alt="" /></td>
                                     <td>{seller.name}</td>
                                     <td>{seller.email}</td>
 

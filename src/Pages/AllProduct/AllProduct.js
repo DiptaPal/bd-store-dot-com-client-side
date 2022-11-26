@@ -3,9 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import Product from '../Product/Product';
 import Loader from '../Shared/Loader/Loader';
 import BookingModal from '../Shared/BookingModal/BookingModal';
+import ReportedModal from '../Shared/ReportedModal/ReportedModal';
 
 const AllProduct = () => {
     const [bookingProduct, setBookingProduct] = useState(null)
+    const [reportedProduct, setReportedProduct] = useState(null)
 
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
@@ -19,7 +21,7 @@ const AllProduct = () => {
     if (isLoading) {
         return <Loader></Loader>
     }
-    
+
     return (
         <div className='mx-5 my-10'>
             <h1 className='text-2xl font-bold text-center uppercase'>Category: All</h1>
@@ -30,15 +32,23 @@ const AllProduct = () => {
                         key={product._id}
                         product={product}
                         setBookingProduct={setBookingProduct}
+                        setReportedProduct={setReportedProduct}
                     ></Product>)
                 }
             </div>
             {
-                bookingProduct && 
+                bookingProduct &&
                 <BookingModal
                     bookingProduct={bookingProduct}
                     setBookingProduct={setBookingProduct}
                 ></BookingModal>
+            }
+            {
+                reportedProduct &&
+                <ReportedModal
+                    reportedProduct={reportedProduct}
+                    setReportedProduct={setReportedProduct}
+                ></ReportedModal>
             }
         </div>
     );

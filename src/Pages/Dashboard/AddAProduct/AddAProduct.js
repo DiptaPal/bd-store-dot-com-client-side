@@ -209,7 +209,7 @@ const AddAProduct = () => {
                                 {...register("description", {
                                     required: "Product description name is required"
                                 })}
-                                type='text' placeholder='Description...' className='text-xl w-full h-36 resize-none border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='description'
+                                type='text' placeholder='Description...' className='text-xl w-full h-56 resize-none border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='description'
                                 aria-invalid={errors.description ? "true" : "false"}
                             />
                             {errors.description && <p className='text-red-600' role="alert">{errors.description?.message}</p>}
