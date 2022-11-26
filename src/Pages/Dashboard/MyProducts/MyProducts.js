@@ -5,9 +5,10 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 import { Link } from 'react-router-dom'
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 
 const MyProducts = () => {
-
+    useTitle('My Product')
     const { user } = useContext(AuthContext)
 
     const [deletingProduct, setDeletingProduct] = useState(null);

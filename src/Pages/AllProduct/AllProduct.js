@@ -4,8 +4,10 @@ import Product from '../Product/Product';
 import Loader from '../Shared/Loader/Loader';
 import BookingModal from '../Shared/BookingModal/BookingModal';
 import ReportedModal from '../Shared/ReportedModal/ReportedModal';
+import useTitle from '../../Hooks/useTitle';
 
 const AllProduct = () => {
+    useTitle('Products')
     const [bookingProduct, setBookingProduct] = useState(null)
     const [reportedProduct, setReportedProduct] = useState(null)
 

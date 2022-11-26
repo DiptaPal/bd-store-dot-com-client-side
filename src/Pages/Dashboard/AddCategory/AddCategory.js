@@ -1,9 +1,11 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { useForm } from "react-hook-form";
+import useTitle from '../../../Hooks/useTitle';
 
 
 const AddCategory = () => {
+    useTitle('Add Category')
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const imageHostKey = process.env.REACT_APP_imgbb_key;
 

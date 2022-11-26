@@ -2,12 +2,11 @@ import React from 'react';
 
 const MakeAdvertise = ({ adProduct }) => {
 
-    const { productImage, productName, resalePrice, originalPrice, description } = adProduct;
+    const { productImage, productName, resalePrice, originalPrice, description, status } = adProduct;
 
 
 
     return (
-
         <div className="cd1 w-full h-80 relative overflow-hidden cursor-pointer  shadow-lg border-2">
             <div className='flex justify-center items-center'>
                 <img className='w-full h-80 object-cover object-center' src={productImage} alt="" />

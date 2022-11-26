@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import Loader from '../../Shared/Loader/Loader';
 
 const ReportedItems = () => {
+    useTitle('Reported Items')
     const [deletingReportedProduct, setDeletingReportedProduct] = useState(null);
     const closeModal = () => {
         setDeletingReportedProduct(null);

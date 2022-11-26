@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { format } from 'date-fns';
 import { useQuery } from '@tanstack/react-query';
+import useTitle from '../../../Hooks/useTitle';
 
 
 const AddAProduct = () => {
-
+    useTitle('Add a Product')
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContext);
     const imageHostKey = process.env.REACT_APP_imgbb_key;

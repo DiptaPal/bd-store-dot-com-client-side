@@ -5,9 +5,10 @@ import Loader from '../../Shared/Loader/Loader';
 import { Link } from 'react-router-dom';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 
 const MyOrder = () => {
-
+    useTitle('My Order')
     const { user } = useContext(AuthContext)
     const [deletingMyOrder, setDeletingMyOrder] = useState(null);
     const closeModal = () => {

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useLoaderData, useNavigation } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 import Product from '../../Product/Product';
 import BookingModal from '../../Shared/BookingModal/BookingModal';
 import Loader from '../../Shared/Loader/Loader';
 import ReportedModal from '../../Shared/ReportedModal/ReportedModal';
 
 const CategoryProducts = () => {
+    useTitle('Products')
     const products = useLoaderData();
     const [bookingProduct, setBookingProduct] = useState(null)
     const [reportedProduct, setReportedProduct] = useState(null)

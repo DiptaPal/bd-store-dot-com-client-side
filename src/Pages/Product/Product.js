@@ -8,7 +8,7 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
     return (
         <div className="card relative bg-base-100 shadow-xl">
             <figure><img src={productImage} alt="" /></figure>
-            <div className="card-body gap-0">
+            <div className="card-body">
                 <div className="card-actions justify-end items-center">
                     <button className="text-secondary text-3xl">
                         <BsHeartFill></BsHeartFill>
@@ -28,14 +28,14 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
 
                 <p className='flex items-center gap-2'>
                     <span>Seller: {username}</span>
-                    <span>
+                    <div className='flex items-end'>
                         {
-                            verified ?
-                                <GoVerified className='text-sky-500 text-xl'> </GoVerified>
+                            verified === 'true' ? 
+                                <div className='tooltip' data-tip="Verified"><GoVerified className='text-sky-500 text-lg'></GoVerified></div>
                                 :
-                                <GoVerified className='text-xl'> </GoVerified>
+                                <div className='tooltip' data-tip="Unverified"><GoVerified className='text-lg'></GoVerified></div>
                         }
-                    </span>
+                    </div>
                 </p>
                 <p className='absolute top-4 right-4'><span className='badge badge-primary text-white shadow-2xl'>{product.status ? 'Sold' : 'Available'}</span></p>
                 {

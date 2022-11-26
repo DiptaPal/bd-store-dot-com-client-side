@@ -3,9 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import Loader from '../../Shared/Loader/Loader';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 
 const AllCategory = () => {
-
+    useTitle('All Category')
     const [deletingCategory, setDeletingCategory] = useState(null);
     const closeModal = () => {
         setDeletingCategory(null);

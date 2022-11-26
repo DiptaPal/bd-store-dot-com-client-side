@@ -3,8 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import Loader from '../../Shared/Loader/Loader';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
+import useTitle from '../../../Hooks/useTitle';
+import { GoVerified } from "react-icons/go";
 
 const AllSellers = () => {
+    useTitle('All Sellers')
     const [deletingSeller, setDeletingSeller] = useState(null);
     const closeModal = () => {
         setDeletingSeller(null);
@@ -44,9 +47,9 @@ const AllSellers = () => {
         fetch(`http://localhost:5000/sellers/verified/${seller.email}`, {
             method: 'PUT',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
                 // authorization: `bearer ${localStorage.getItem('accessToken')}`
-            },  
+            },
         })
             .then(res => res.json())
             .then(data => {
@@ -87,7 +90,19 @@ const AllSellers = () => {
                                 >
                                     <th>{i + 1}</th>
                                     <td><img src={seller.img} className='w-16 h-16 rounded-full mx-auto' alt="" /></td>
-                                    <td>{seller.name}</td>
+                                    <td>
+                                        <div className='flex items-center gap-2'>
+                                            <span>{seller.name}</span>
+                                            <span className='flex items-center'>{
+                                                seller.verified ?
+                                                    <div className='tooltip' data-tip="Verified"><GoVerified className='text-sky-500 text-base'></GoVerified></div>
+                                                    :
+                                                    <div className='tooltip' data-tip="Unverified"><GoVerified className='text-base'></GoVerified></div>
+                                            }
+                                            </span>
+                                        </div>
+                                    </td>
+
                                     <td>{seller.email}</td>
 
                                     {
@@ -106,14 +121,14 @@ const AllSellers = () => {
                 </div>
             </div>
             {
-                deletingSeller && 
+                deletingSeller &&
                 <ConfirmationModal
-                title={`Are you sure you want to delete?`}
-                message={`If you delete ${deletingSeller.name}. It cannot be undone.`}
-                modalData={deletingSeller}
-                successAction={handleDeletedSeller}
-                closeModal={closeModal}
-                successButtonName='Delete'
+                    title={`Are you sure you want to delete?`}
+                    message={`If you delete ${deletingSeller.name}. It cannot be undone.`}
+                    modalData={deletingSeller}
+                    successAction={handleDeletedSeller}
+                    closeModal={closeModal}
+                    successButtonName='Delete'
                 ></ConfirmationModal>
             }
         </div>
