@@ -11,7 +11,7 @@ const Categories = () => {
             return data;
         }
     })
-    return (
+    return (    
         <div className='mt-44 mb-32'>
             <h1 className='text-2xl font-bold text-center uppercase'>All Categories</h1>
             <hr className='w-56 bg-primary pt-1 mx-auto' />

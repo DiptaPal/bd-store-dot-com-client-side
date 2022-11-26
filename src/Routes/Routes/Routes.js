@@ -24,6 +24,7 @@ import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import CategoryProducts from "../../Pages/Home/CategoryProducts/CategoryProducts";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
+import EditProduct from "../../Pages/Dashboard/EditProduct/EditProduct";
 
 export const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ export const router = createBrowserRouter([
             {
                 path: '/categoryProducts/:id',
                 element: <CategoryProducts></CategoryProducts>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {
                 path: '/blog',
@@ -83,6 +84,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addAProduct',
                 element: <SellerRoute><AddAProduct></AddAProduct></SellerRoute>
+            },
+            {
+                path: '/dashboard/editProduct/:id',
+                element: <SellerRoute><EditProduct></EditProduct></SellerRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/editProduct/${params.id}`)
             },
             {
                 path: '/dashboard/myProducts',

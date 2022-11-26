@@ -5,3 +5,11 @@
 .cd:hover .cd-body{
     right: 0;
 }
+
+.cd-body1{
+    top: -100%;
+    transition: 0.8s;
+}
+.cd1:hover .cd-body1{
+    top: 0;
+}

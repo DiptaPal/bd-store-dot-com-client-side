@@ -6,9 +6,17 @@ import { GoVerified } from "react-icons/go";
 const Product = ({ product, setBookingProduct }) => {
     const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, description, username, verified } = product;
     return (
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card relative bg-base-100 shadow-xl">
             <figure><img src={productImage} alt="" /></figure>
             <div className="card-body">
+                <div className="card-actions justify-end items-center">
+                    <button className="text-secondary text-3xl">
+                        <BsHeartFill></BsHeartFill>
+                    </button>
+                    <button className="text-yellow-500 text-4xl">
+                        <MdReport></MdReport>
+                    </button>
+                </div>
                 <h2 className="card-title">
                     {productName}
                 </h2>
@@ -28,22 +36,28 @@ const Product = ({ product, setBookingProduct }) => {
                         }
                     </span>
                 </p>
+                <p className='absolute top-4 right-4'><span className='badge badge-primary text-white shadow-2xl'>{product.status ? 'Sold' : 'Available'}</span></p>
+                {
+                    product.status ?
 
-                <div className="card-actions justify-end items-center">
-                    <button className="text-pink-500 text-3xl">
-                        <BsHeartFill></BsHeartFill>
-                    </button>
-                    <button className="text-yellow-500 text-4xl">
-                        <MdReport></MdReport>
-                    </button>
-                </div>
-                <label
-                    onClick={() => setBookingProduct(product)}
-                    htmlFor="booking-modal"
-                    className='w-full btn btn-primary my-4'
-                >
-                    Book Now
-                </label>
+                        <button
+                            onClick={() => setBookingProduct(product)}
+                            htmlFor="booking-modal"
+                            className='w-full btn btn-primary my-4'
+                            disabled
+                        >
+                            Book Now
+                        </button>
+                        :
+
+                        <label
+                            onClick={() => setBookingProduct(product)}
+                            htmlFor="booking-modal"
+                            className='w-full btn btn-primary my-4'
+                        >
+                            Book Now
+                        </label>
+                }
 
             </div>
         </div>

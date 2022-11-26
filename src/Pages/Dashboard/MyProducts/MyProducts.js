@@ -24,6 +24,24 @@ const MyProducts = () => {
         }
     })
 
+
+    const handleMakeAdvertise = (product) => {
+        fetch(`http://localhost:5000/makeAdvertise/${product._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success(`Advertise done successful`)
+                    refetch();
+                }
+            })
+    }
+
     const handleDeletedProduct = (product) => {
         fetch(`http://localhost:5000/products/${product._id}`, {
             method: 'DELETE',
@@ -75,26 +93,32 @@ const MyProducts = () => {
                                         <td>{product.date}</td>
                                         <td>
                                             {
-                                            product.status ?
-                                                <span className='capitalize font-bold'>{product.status}</span>
-                                                :
-                                                <span className='font-bold'>Available</span>
+                                                product.status ?
+                                                    <span className='capitalize font-bold text-amber-600'>{product.status}</span>
+                                                    :
+                                                    <span className='font-bold text-secondary'>Available</span>
                                             }
                                         </td>
                                         <td>
                                             {
                                                 product.status ?
-                                                ''
-                                                :
-                                                <button className='btn btn-primary text-white'>Edit</button>
+                                                    ''
+                                                    :
+                                                    <Link to={`/dashboard/editProduct/${product._id}`} className='btn btn-primary text-white'>Edit</Link>
                                             }
                                         </td>
                                         <td>
                                             {
                                                 product.status ?
-                                                ''
-                                                :
-                                                <button className='btn btn-success text-white'>Make Advertise</button>
+                                                    ''
+                                                    :
+
+                                                    product.isAdvertise ?
+
+                                                        <button className=' text-green-600 font-bold'>Advertise On</button>
+                                                        :
+                                                        <button onClick={() => handleMakeAdvertise(product)} className='btn text-white'>Make Advertise</button>
+
                                             }
                                         </td>
                                         <td>
