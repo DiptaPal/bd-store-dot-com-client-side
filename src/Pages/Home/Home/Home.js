@@ -5,6 +5,7 @@ import AdvertiseProduct from '../AdvertiseProduct/AdvertiseProduct';
 import Categories from '../Categories/Categories';
 import Heros from '../Heros/Heros';
 import Service from '../Service/Service';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     useTitle('Home')
@@ -13,10 +14,11 @@ const Home = () => {
             <div className='max-w-[1440px] mx-auto'>
                 <Heros></Heros>
                 <AdvertiseProduct></AdvertiseProduct>
-                <Categories></Categories>
                 <Service></Service>
+                <Categories></Categories>
+                <Testimonial></Testimonial>
+                <Contact></Contact>
             </div>
-            <Contact></Contact>
         </div>
     );
 };

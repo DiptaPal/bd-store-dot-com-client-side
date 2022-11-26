@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
@@ -7,8 +6,6 @@ const ReportedModal = ({ reportedProduct, setReportedProduct }) => {
     const { productName, productImage, _id } = reportedProduct;
 
     const { user } = useContext(AuthContext)
-
-    const date = format(new Date(), 'PP');
 
     const handleBooking = event => {
         event.preventDefault();

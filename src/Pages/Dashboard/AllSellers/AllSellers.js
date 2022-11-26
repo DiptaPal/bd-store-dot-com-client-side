@@ -69,7 +69,7 @@ const AllSellers = () => {
     return (
         <div>
             <div className='px-10'>
-                <h3 className='text-3xl m-7'>My Sellers</h3>
+                <h3 className='text-3xl m-7'>My Sellers({sellers.length})</h3>
                 <div className="overflow-x-auto">
                     <table className="table w-full text-center">
                         <thead>
@@ -91,7 +91,7 @@ const AllSellers = () => {
                                     <th>{i + 1}</th>
                                     <td><img src={seller.img} className='w-16 h-16 rounded-full mx-auto' alt="" /></td>
                                     <td>
-                                        <div className='flex items-center gap-2'>
+                                        <div className='flex items-center justify-center gap-2'>
                                             <span>{seller.name}</span>
                                             <span className='flex items-center'>{
                                                 seller.verified ?

@@ -57,6 +57,7 @@ const BookingModal = ({bookingProduct, setBookingProduct }) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-secondary text-white btn-circle absolute right-2 top-2 ">✕</label>
                     <h3 className="text-lg font-bold">{productName}</h3>
                     <h3 className="text-base font-semibold mb-6">${resalePrice}</h3>
+                    <p className='mb-4'>{description}</p>
                     <form onSubmit={handleBooking} className='flex flex-col gap-3'>
 
                         <input type="text" name='date' value={date} readOnly className="w-full input-ghost outline-none py-3 px-4 bg-gray-200 rounded-md font-semibold" />

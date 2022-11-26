@@ -2,6 +2,7 @@ import React from 'react';
 import { BsHeartFill } from "react-icons/bs";
 import { MdReport } from "react-icons/md";
 import { GoVerified } from "react-icons/go";
+import { MdLocationOn } from "react-icons/md";
 
 const Product = ({ product, setBookingProduct, setReportedProduct }) => {
     const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified } = product;
@@ -17,26 +18,36 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
                         <MdReport></MdReport>
                     </label>
                 </div>
-                <h2 className="card-title">
+                <h2 className="card-title text-2xl">
                     {productName}
                 </h2>
-                <p>Location: {location}</p>
-                <h3 className='text-xl font-semibold'>Resale Price: <span className='text-secondary'>${resalePrice}</span></h3>
-                <p className='line-through text-red-500'>Original Price: ${originalPrice}</p>
-                <p>Used: {yearsOfUsed}</p>
-                <p>Quality: {quality}</p>
 
-                <p className='flex items-center gap-2'>
-                    <span>Seller: {username}</span>
-                    <div className='flex items-end'>
-                        {
-                            verified === 'true' ? 
-                                <div className='tooltip' data-tip="Verified"><GoVerified className='text-sky-500 text-lg'></GoVerified></div>
-                                :
-                                <div className='tooltip' data-tip="Unverified"><GoVerified className='text-lg'></GoVerified></div>
-                        }
+                <div className='flex gap-2 items-end'>
+                    <span className='text-2xl font-semibold'>${resalePrice}</span>
+                    <span className='line-through text-red-700'><small className='text-base'>${originalPrice}</small></span>
+                </div>
+
+                <div className='flex flex-col sm:flex-row justify-between sm:items-center gap-2 flex-wrap'>
+                    <p className='flex gap-2 items-center'>
+                        <MdLocationOn className='text-2xl'></MdLocationOn> 
+                        <span>{location}</span>
+                    </p>
+                    <div className='flex items-center gap-2 sm:justify-end'>
+                        <span>{username}</span>
+                        <div className='flex items-end'>
+                            {
+                                verified === 'true' ?
+                                    <div className='tooltip' data-tip="Verified"><GoVerified className='text-sky-500 text-lg'></GoVerified></div>
+                                    :
+                                    <div className='tooltip' data-tip="Unverified"><GoVerified className='text-lg'></GoVerified></div>
+                            }
+                        </div>
                     </div>
-                </p>
+                </div>
+
+                <p>Used: {yearsOfUsed}</p>
+                <p>Quality: <span className='capitalize'>{quality}</span></p>
+
                 <p className='absolute top-4 right-4'><span className='badge badge-primary text-white shadow-2xl'>{product.status ? 'Sold' : 'Available'}</span></p>
                 {
                     product.status ?

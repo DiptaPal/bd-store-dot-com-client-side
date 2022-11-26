@@ -66,7 +66,7 @@ const MyProducts = () => {
     return (
         <div>
             <div className='px-10'>
-                <h3 className='text-3xl m-7'>My Product</h3>
+                <h3 className='text-3xl m-7'>My Product({myProducts.length})</h3>
                 <div className="overflow-x-auto">
                     <table className="table w-full text-center">
                         <thead>

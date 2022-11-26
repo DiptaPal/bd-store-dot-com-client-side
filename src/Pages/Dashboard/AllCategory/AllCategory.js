@@ -42,7 +42,7 @@ const AllCategory = () => {
     return (
         <div>
             <div className='px-10'>
-                <h3 className='text-3xl m-7'>All Category</h3>
+                <h3 className='text-3xl m-7'>All Category({categories.length})</h3>
                 <div className="overflow-x-auto">
                     <table className="table w-full text-center">
                         <thead>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -83,7 +83,7 @@ const AddAProduct = () => {
                 <h1 className='text-2xl uppercase font-semibold'>Add Product</h1>
                 <hr className='w-44 bg-secondary pt-1 mx-auto' />
             </div>
-            <div className='flex justify-center items-center my-16 px-4 lg:px-0'>
+            <div className='flex justify-center items-center bg-base-400 my-16 px-4 lg:px-0'>
                 <div className='flex flex-col w-full max-w-4xl p-6 space-y-4 text-center shadow-md rounded-md bg-base-200 text-gray-800 mx-2 sm:mx-5'>
                     <form onSubmit={handleSubmit(handleProduct)} className='space-y-6'>
 
