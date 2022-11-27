@@ -20,12 +20,12 @@ const ReportedModal = ({ reportedProduct, setReportedProduct }) => {
             userEmail: user.email,
             userName: user.displayName,
         }
-        console.log(bookedProduct);
 
-        fetch('http://localhost:5000/reportedProduct', {
+        fetch('https://bd-store-dot-com-server-side.vercel.app/reportedProduct', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type' : 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(bookedProduct) 
         })

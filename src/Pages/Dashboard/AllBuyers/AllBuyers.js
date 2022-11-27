@@ -16,18 +16,22 @@ const AllBuyers = () => {
     const { data: buyers = [], isLoading, refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/buyers')
+            const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/buyers',{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+               }
+            })
             const data = await res.json();
             return data;
         }
     })
 
     const handleDeletedBuyer = (buyer) => {
-        fetch(`http://localhost:5000/buyers/${buyer.email}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/buyers/${buyer.email}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {

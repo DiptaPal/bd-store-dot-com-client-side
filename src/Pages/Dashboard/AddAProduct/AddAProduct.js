@@ -18,7 +18,11 @@ const AddAProduct = () => {
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categories')
+            const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/categories',{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+               }
+            })
             const data = await res.json();
             return data;
         }
@@ -52,13 +56,15 @@ const AddAProduct = () => {
                         originalPrice: data.originalprice,
                         yearsOfUsed: data.usedyear,
                         description: data.description,
-                        date: format(new Date(), 'PP')
+                        date: new Date(),
+                        verified: 'false',
+                        status: "unsold",
                     }
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://bd-store-dot-com-server-side.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                             authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })
@@ -67,7 +73,7 @@ const AddAProduct = () => {
                             if (data.acknowledged) {
                                 toast.success('Product add Successful')
                                 reset();
-                                navigate('/dashboard/myproducts')
+                                navigate('/dashboard/myProducts')
                             }
                         })
                 }

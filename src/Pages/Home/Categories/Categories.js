@@ -7,17 +7,22 @@ import Loader from '../../Shared/Loader/Loader';
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     const [loader, setLoader] = useState(true);
+    
     // const { data: categories = [] } = useQuery({
     //     queryKey: ['categories'],
     //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:5000/categories')
+    //         const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/categories')
     //         const data = await res.json();
     //         return data;
     //     }
     // })
 
     useEffect(() => {
-        axios.get('http://localhost:5000/categories')
+        axios.get('https://bd-store-dot-com-server-side.vercel.app/categories',{
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
         .then(res => {setCategories(res.data); setLoader(false)})
     }, [])
 

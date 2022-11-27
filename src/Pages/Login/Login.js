@@ -61,7 +61,7 @@ const Login = () => {
             role,
             img
         }
-        fetch('https://doctors-portal-server-rosy.vercel.app/users', {
+        fetch('https://bd-store-dot-com-server-side.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

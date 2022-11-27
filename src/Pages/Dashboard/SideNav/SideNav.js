@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../../assets/logo.png'
-import { AiFillHome, AiFillShopping } from "react-icons/ai";
-import { FaUserFriends } from "react-icons/fa";
-import { MdReport, MdLocalGroceryStore, MdDashboardCustomize } from "react-icons/md";
-import { BiExit, BiCategory } from "react-icons/bi";
+import { AiFillHome } from "react-icons/ai";
+import { FaShoppingCart } from "react-icons/fa";
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { MdReport, MdDashboardCustomize } from "react-icons/md";
+import { BiCategory } from "react-icons/bi";
+import { BiExit } from "react-icons/bi";
 import { BsFillPeopleFill, BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
@@ -74,7 +76,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <FaUserFriends className='text-xl'></FaUserFriends>
+                                <FaShoppingCart className='text-xl'></FaShoppingCart>
                                 <p>My Order</p>
                             </NavLink>
                             <NavLink
@@ -103,7 +105,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <AiFillShopping className='text-xl'></AiFillShopping>
+                                <HiOutlinePencilAlt className='text-xl'></HiOutlinePencilAlt>
                                 <p>Add A Product</p>
                             </NavLink>
 
@@ -116,7 +118,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <AiFillShopping className='text-xl'></AiFillShopping>
+                                <FaShoppingCart className='text-xl'></FaShoppingCart>
                                 <p>My Products</p>
                             </NavLink>
                             <NavLink
@@ -184,7 +186,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <MdLocalGroceryStore className='text-xl'></MdLocalGroceryStore>
+                                <BiCategory className='text-xl'></BiCategory>
                                 <p>All Category</p>
                             </NavLink>
 
@@ -197,7 +199,7 @@ const SideNav = () => {
                                         "flex items-center gap-3 text-gray-400 hover:text-white duration-500 border-white px-6 py-2 hover:bg-gray-700"
                                 }
                             >
-                                <BiCategory className='text-xl'></BiCategory>
+                                <HiOutlinePencilAlt className='text-xl'></HiOutlinePencilAlt>
                                 <p>Add Category</p>
                             </NavLink>
                         </>

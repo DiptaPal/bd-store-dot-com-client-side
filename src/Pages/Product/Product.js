@@ -4,13 +4,25 @@ import { MdReport } from "react-icons/md";
 import { GoVerified } from "react-icons/go";
 import { MdLocationOn } from "react-icons/md";
 import { AuthContext } from '../../contexts/AuthProvider';
-import { format } from 'date-fns';
+import { format, formatDistanceToNow } from 'date-fns';
 import toast from 'react-hot-toast';
+import useBuyer from '../../Hooks/useBuyer';
+import Loader from '../Shared/Loader/Loader';
 
 const Product = ({ product, setBookingProduct, setReportedProduct }) => {
-    const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified } = product;
+    const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified, date: postDate } = product;
+
+    const postedDate = formatDistanceToNow(
+        new Date(postDate),
+        { includeSeconds: true }
+    )
+
+    const fullDate = format(new Date(postDate), 'PPPPp')
 
     const { user } = useContext(AuthContext)
+
+    const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
+
 
     const date = format(new Date(), 'PP');
 
@@ -26,11 +38,13 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
             customerPhotoNo: user.photoURL,
         }
 
-        fetch('http://localhost:5000/wishlists', {
+        fetch('https://bd-store-dot-com-server-side.vercel.app/wishlists', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
+
             body: JSON.stringify(wishlists)
         })
             .then(res => res.json())
@@ -48,14 +62,27 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
     return (
         <div className="card relative bg-base-100 shadow-xl">
             <figure><img src={productImage} alt="" /></figure>
-            <div className="card-body">
+            <div className="card-body gap-3">
                 <div className="card-actions justify-end items-center">
-                    <button onClick={() => handleWishlists(product)} className="text-secondary text-3xl">
-                        <BsHeartFill></BsHeartFill>
-                    </button>
-                    <label htmlFor='report-modal' title='Report' onClick={() => setReportedProduct(product)} className="text-yellow-500 text-4xl cursor-pointer">
-                        <MdReport></MdReport>
-                    </label>
+                    <div className="tooltip" data-tip="Wishlist">
+                        <button disabled={!isBuyer} onClick={() => handleWishlists(product)} className="text-secondary text-3xl">
+                            <BsHeartFill></BsHeartFill>
+                        </button>
+                    </div>
+
+                    <div className="tooltip" data-tip="Report">
+                        {
+                            isBuyer ?
+                                <label htmlFor="report-modal" onClick={() => setReportedProduct(product)} className="text-yellow-500 text-4xl cursor-pointer">
+                                    <MdReport></MdReport>
+                                </label>
+                                :
+                                <label onClick={() => setReportedProduct(product)} className="text-yellow-500 text-4xl">
+                                    <MdReport></MdReport>
+                                </label>
+                        }
+
+                    </div>
                 </div>
                 <h2 className="card-title text-2xl">
                     {productName}
@@ -84,36 +111,24 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
                     </div>
                 </div>
 
-                <p>Used: {yearsOfUsed}</p>
+                <div className='flex flex-col gap-2 flex-wrap'>
+                    <p>Used: <span className='font-semibold'>{yearsOfUsed}</span></p>
+                    <div className="tooltip" data-tip={fullDate}>
+                        <p className='text-left'>Posted: <span className='font-semibold'>{postedDate} ago</span></p>
+                    </div>
+                </div>
                 <p>Quality: <span className='capitalize'>{quality}</span></p>
 
-                <p className='absolute top-4 right-4'><span className='badge badge-primary text-white shadow-2xl'>{product.status ? 'Sold' : 'Available'}</span></p>
-                {
-                    product.status ?
-
-                        <button
-                            onClick={() => setBookingProduct(product)}
-                            htmlFor="booking-modal"
-                            className='w-full btn btn-primary my-4'
-                            disabled
-                        >
-                            Book Now
-                        </button>
-                        :
-
-                        <label
-                            onClick={() => setBookingProduct(product)}
-                            htmlFor="booking-modal"
-                            className='w-full btn btn-primary my-4'
-                        >
-                            Book Now
-                        </label>
-                }
-
+                <p className='absolute top-4 right-4'><span className='badge badge-primary text-white shadow-2xl capitalize'>{product.status}</span></p>
+                <label
+                    onClick={() => setBookingProduct(product)}
+                    htmlFor="booking-modal"
+                    className='w-full btn btn-primary my-4'
+                    disabled={(!isBuyer)}
+                >
+                    Book Now
+                </label>
             </div>
-            {
-
-            }
         </div>
     );
 };

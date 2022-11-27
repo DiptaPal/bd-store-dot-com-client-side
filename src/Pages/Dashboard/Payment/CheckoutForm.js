@@ -17,11 +17,11 @@ const CheckoutForm = ({ booking }) => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://bd-store-dot-com-server-side.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify({ productPrice }),
         })
@@ -84,7 +84,7 @@ const CheckoutForm = ({ booking }) => {
                 bookingId: _id
 
             }
-            fetch('http://localhost:5000/payments', {
+            fetch('https://bd-store-dot-com-server-side.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

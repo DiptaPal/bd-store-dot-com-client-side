@@ -16,7 +16,11 @@ const AllSellers = () => {
         queryKey: ['sellers'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/sellers')
+                const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/sellers',{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   }
+                })
 
                 const data = await res.json();
                 return data;
@@ -28,11 +32,11 @@ const AllSellers = () => {
     })
 
     const handleDeletedSeller = (seller) => {
-        fetch(`http://localhost:5000/sellers/${seller.email}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/sellers/${seller.email}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -44,11 +48,11 @@ const AllSellers = () => {
     }
 
     const handleVerifiedSeller = (seller) => {
-        fetch(`http://localhost:5000/sellers/verified/${seller.email}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/sellers/verified/${seller.email}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
-                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                'content-type': 'application/json',
+                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())

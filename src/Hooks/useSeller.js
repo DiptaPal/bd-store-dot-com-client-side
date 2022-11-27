@@ -5,7 +5,7 @@ const useSeller = email => {
     const [isSellerLoading, setSetterLoading] = useState(true);
     useEffect(() => {
         if(email){
-            fetch(`http://localhost:5000/users/seller/${email}`)
+            fetch(`https://bd-store-dot-com-server-side.vercel.app/users/seller/${email}`)
             .then(res => res.json())
             .then(data => {
                 setIsSeller(data?.isSeller)

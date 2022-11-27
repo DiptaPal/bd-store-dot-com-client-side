@@ -14,7 +14,11 @@ const AllProduct = () => {
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products')
+            const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/products',{
+                headers: {
+                     authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json();
             return data;
         }

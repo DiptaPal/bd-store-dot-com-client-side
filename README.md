@@ -1,4 +1,66 @@
-# Getting Started with Create React App
+# Project Name: [Bengali Taste]()
+
+## Live Link: /
+
+## Client Side Repository Link: 
+
+## Server Side Repository Link: 
+# <b><u>About:</u><b>
+
+<p>BD-Store.com is a product reseller website. Here buyer can easily buy their necessary product and seller can easily sell their unnecessary, second-hand products. Also they seller can  advertise their product. But we are always conscious our customer satisfaction. If any product quality is bad and customer report that product, we delete that product as soon as possible. If any buyer and seller are fraud, then strictly banned that buyer and seller.<p> 
+
+## <u>Features:</u>
+* User Authentication
+* Seller verification system
+* User can choose their role(seller or buyer)
+* Only authorized buyer can purchase product
+* Buyer also can bookmark their favorite product 
+* Buyer can make payment by card
+* Authorized Seller can sales their product,
+* Authorized seller also can edit and delete their product post
+* Verified seller has a blue badge
+* Admin can remove reported product
+* Admin can verify the seller
+* Admin can remove buyer and seller
+* Admin can add product type
+* Protected the api with JWT
+* User can read blog at blog page
+
+
+### <u>Which i used:</u>
+* React
+* Tialwind
+* DaisyUI
+* Mamba UI
+* HyperUI
+* React Router Dom
+* React Hook Form
+* Axios
+* React Hot Toast
+* React Icon
+* Lottie-React
+* Context API
+* Deploy in Firebase
+* Express JS
+* MongoDB Atlas
+* Swiper JS 
+* Firebase
+* React Loader Spinner
+* React Aos
+* React Scroll To Top
+* Date Fns
+* React 
+* Sweet Alert
+* React Simple Typewriter
+
+Hi there, It's me, Dipta Pal. I am trying to learn Web Development from Bangladesh.
+
+:coffee: &emsp;Connect with me!
+
+[![Facebook Badge](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/diptapal98) [![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dipta-pal/) [![Instagram Badge](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/dipta_pal_98/) [![Twitter Badge](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/DiptaPal98) [![Mail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:diptapal1998@gmail.com)
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,43 +90,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

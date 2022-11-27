@@ -84,7 +84,7 @@ const Registration = () => {
             role,
             img
         }
-        fetch('http://localhost:5000/users', {
+        fetch('https://bd-store-dot-com-server-side.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

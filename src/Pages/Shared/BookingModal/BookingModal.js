@@ -30,10 +30,11 @@ const BookingModal = ({bookingProduct, setBookingProduct }) => {
             customerAddress
         }
         
-        fetch('http://localhost:5000/bookingProducts', {
+        fetch('https://bd-store-dot-com-server-side.vercel.app/bookingProducts', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type' : 'application/json',
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(bookedProduct) 
         })

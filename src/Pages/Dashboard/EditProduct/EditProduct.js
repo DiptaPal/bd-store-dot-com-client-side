@@ -19,7 +19,11 @@ const EditProduct = () => {
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categories')
+            const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/categories',{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+               }
+            })
             const data = await res.json();
             return data;
         }
@@ -56,11 +60,11 @@ const EditProduct = () => {
                         description: data.description,
                         date: format(new Date(), 'PP')
                     }
-                    fetch(`http://localhost:5000/updateProduct/${editProduct._id}`, {
+                    fetch(`https://bd-store-dot-com-server-side.vercel.app/updateProduct/${editProduct._id}`, {
                         method: 'PATCH',
                         headers: {
                             'content-type': 'application/json',
-                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                             authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })

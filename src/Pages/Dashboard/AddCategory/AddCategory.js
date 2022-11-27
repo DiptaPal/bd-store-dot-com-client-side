@@ -25,13 +25,12 @@ const AddCategory = () => {
                        categoryName: data.category,
                        categoryImage: imageData.data.url  
                     }
-                    console.log(category);
 
-                    fetch('http://localhost:5000/categories', {
+                    fetch('https://bd-store-dot-com-server-side.vercel.app/categories', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                             authorization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(category)
                     })

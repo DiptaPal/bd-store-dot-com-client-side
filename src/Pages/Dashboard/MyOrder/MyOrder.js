@@ -18,18 +18,22 @@ const MyOrder = () => {
     const { data: myOrders = [], isLoading, refetch } = useQuery({
         queryKey: ['myOrders'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myOrders?email=${user.email}`)
+            const res = await fetch(`https://bd-store-dot-com-server-side.vercel.app/myOrders?email=${user.email}`,{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+               }
+            })
             const data = await res.json();
             return data;
         }
     })
 
     const handleDeletedMyOrder = (myOrder) =>{
-        fetch(`http://localhost:5000/myOrders/delete?id=${myOrder._id}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/myOrders/delete?id=${myOrder._id}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {

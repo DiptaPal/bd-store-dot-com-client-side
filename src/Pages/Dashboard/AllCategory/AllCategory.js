@@ -15,14 +15,18 @@ const AllCategory = () => {
     const { data: categories = [], isLoading, refetch } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categories')
+            const res = await fetch('https://bd-store-dot-com-server-side.vercel.app/categories',{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+               }
+            })
             const data = await res.json();
             return data;
         }
     })
 
     const handleDeleteCategory = (category) =>{
-        fetch(`http://localhost:5000/categories/${category._id}`,{
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/categories/${category._id}`,{
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

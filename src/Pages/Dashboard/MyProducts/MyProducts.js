@@ -19,7 +19,11 @@ const MyProducts = () => {
     const { data: myProducts = [], isLoading, refetch } = useQuery({
         queryKey: ['myProducts'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myProducts?email=${user.email}`)
+            const res = await fetch(`https://bd-store-dot-com-server-side.vercel.app/myProducts?email=${user.email}`,{
+                headers: {
+                     authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json();
             return data;
         }
@@ -27,11 +31,11 @@ const MyProducts = () => {
 
 
     const handleMakeAdvertise = (product) => {
-        fetch(`http://localhost:5000/makeAdvertise/${product._id}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/makeAdvertise/${product._id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
-                // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                'content-type': 'application/json',
+                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())
@@ -44,11 +48,11 @@ const MyProducts = () => {
     }
 
     const handleDeletedProduct = (product) => {
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://bd-store-dot-com-server-side.vercel.app/products/${product._id}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -93,26 +97,19 @@ const MyProducts = () => {
                                         <td>{product.productName}</td>
                                         <td>{product.date}</td>
                                         <td>
-                                            {
-                                                product.status ?
-                                                    <span className='capitalize font-bold text-amber-600'>{product.status}</span>
-                                                    :
-                                                    <span className='font-bold text-secondary'>Available</span>
-                                            }
+                                            <span className='capitalize font-bold text-amber-600'>{product.status}</span>
                                         </td>
                                         <td>
                                             {
-                                                product.status ?
-                                                    ''
-                                                    :
+                                                product.status === 'unsold' ?
                                                     <Link to={`/dashboard/editProduct/${product._id}`} className='btn btn-primary text-white'>Edit</Link>
+                                                    :
+                                                    ''
                                             }
                                         </td>
                                         <td>
                                             {
-                                                product.status ?
-                                                    ''
-                                                    :
+                                                product.status === 'unsold' ?
 
                                                     product.isAdvertise ?
 
@@ -120,6 +117,8 @@ const MyProducts = () => {
                                                         :
                                                         <button onClick={() => handleMakeAdvertise(product)} className='btn text-white'>Make Advertise</button>
 
+                                                    :
+                                                    ''
                                             }
                                         </td>
                                         <td>

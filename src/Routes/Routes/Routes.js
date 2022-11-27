@@ -43,8 +43,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/categoryProducts/:id',
-                element: <CategoryProducts></CategoryProducts>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                element: <PrivateRoute><CategoryProducts></CategoryProducts></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://bd-store-dot-com-server-side.vercel.app/category/${params.id}`,{
+                    headers: {
+                         authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
             },
             {
                 path: '/blog',
@@ -71,7 +75,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             },
             {
                 path: '/dashboard/myOrder',
@@ -84,12 +88,20 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/myOrder/${params.id}`)
+                loader: ({params}) => fetch(`https://bd-store-dot-com-server-side.vercel.app/myOrder/${params.id}`,{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   }
+                })
             },
             {
                 path: '/dashboard/wishlist/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/wishlists/${params.id}`)
+                loader: ({params}) => fetch(`https://bd-store-dot-com-server-side.vercel.app/wishlists/${params.id}`,{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   }
+                })
             },
             {
                 path: '/dashboard/addAProduct',
@@ -98,7 +110,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/editProduct/:id',
                 element: <SellerRoute><EditProduct></EditProduct></SellerRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/editProduct/${params.id}`)
+                loader: ({params}) => fetch(`https://bd-store-dot-com-server-side.vercel.app/editProduct/${params.id}`,{
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                   }
+                })
             },
             {
                 path: '/dashboard/myProducts',

@@ -5,7 +5,7 @@ import img3 from '../../../assets/service/3.png'
 import img4 from '../../../assets/service/4.png'
 const Service = () => {
     return (
-        <div className='flex items-center justify-around gap-4 border-2 border-gray-100 py-2 flex-wrap mb-32'>
+        <div className='flex items-center justify-around gap-4 border-2 border-gray-100 py-2 flex-wrap mb-32 mt-32'>
             <div className='flex items-center gap-3 px-6 xl:border-r xl:border-primary w-80'>
                 <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary'>
                     <img src={img1} className='h-16 w-16 hover:scale-90 duration-300' alt="" />
