@@ -34,7 +34,7 @@ const SideNav = () => {
     return (
         <div className="pt-4 w-80 bg-accent flex justify-between gap-6 flex-col">
             <div>
-                <Link className='inline-flex items-center pl-6'>
+                <Link to='/' className='inline-flex items-center pl-6'>
                     <div>
                         <img className='w-10 h-10 object-cover' src={logo} alt="logo" />
                     </div>

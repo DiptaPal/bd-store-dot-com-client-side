@@ -4,6 +4,7 @@ import Contact from '../../Contact/Contact';
 import AdvertiseProduct from '../AdvertiseProduct/AdvertiseProduct';
 import Categories from '../Categories/Categories';
 import Heros from '../Heros/Heros';
+import Offer from '../Offer/Offer';
 import Service from '../Service/Service';
 import Testimonial from '../Testimonial/Testimonial';
 
@@ -16,6 +17,7 @@ const Home = () => {
                 <AdvertiseProduct></AdvertiseProduct>
                 <Service></Service>
                 <Categories></Categories>
+                <Offer></Offer>
                 <Testimonial></Testimonial>
                 <Contact></Contact>
             </div>

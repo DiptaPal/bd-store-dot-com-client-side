@@ -99,7 +99,7 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
                         <span>{location}</span>
                     </p>
                     <div className='flex items-center gap-2 sm:justify-end'>
-                        <span>{username}</span>
+                        <span className='capitalize'>{username}</span>
                         <div className='flex items-end'>
                             {
                                 verified === 'true' ?

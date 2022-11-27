@@ -96,7 +96,7 @@ const Blog = () => {
                 <img src="https://i.ibb.co/f2CFVV0/Untitled-Diagram108.png" alt="" />
             </details>
 
-            <details className="group border-l-4 border-primary bg-white p-6">
+            <details className="group border-l-4 border-primary bg-white shadow p-6">
                 <summary className="flex cursor-pointer items-center justify-between">
                     <h5 className="text-lg md:text-2xl font-medium text-gray-900">
                         What is a unit test? Why should we write unit tests?
@@ -129,7 +129,7 @@ const Blog = () => {
                 </p>
             </details>
 
-            <details className="group border-l-4 border-primary bg-white p-6">
+            <details className="group border-l-4 border-primary bg-white shadow p-6">
                 <summary className="flex cursor-pointer items-center justify-between">
                     <h5 className="text-lg md:text-2xl font-medium text-gray-900">
                         React vs. Angular vs. Vue?
