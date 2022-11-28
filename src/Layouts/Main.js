@@ -1,5 +1,5 @@
 import React from 'react';
-import {Outlet, ScrollRestoration} from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Footer from '../Pages/Shared/Footer/Footer';
 import Header from '../Pages/Shared/Header/Header';
 
@@ -10,7 +10,9 @@ const Main = () => {
                 <Header></Header>
             </div>
             <Outlet></Outlet>
-            <Footer></Footer>
+            <div className='bg-black text-white'>
+                <Footer></Footer>
+            </div>
             <ScrollRestoration />
         </div>
     );

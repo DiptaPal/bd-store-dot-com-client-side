@@ -6,28 +6,29 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-black text-white">
-                <div>
+                <div className='mx-auto'>
                     <span className="footer-title">Services</span>
                     <Link className="link link-hover">Selling Product</Link>
                     <Link className="link link-hover">Buying Product</Link>
                     <Link className="link link-hover">Marketing</Link>
                     <Link className="link link-hover">Advertisement</Link>
                 </div>
-                <div>
+                <div className='mx-auto'>
                     <span className="footer-title">Company</span>
                     <Link className="link link-hover">HP</Link>
                     <Link className="link link-hover">Dell</Link>
                     <Link className="link link-hover">Apple</Link>
                     <Link className="link link-hover">Lenovo</Link>
                 </div>
-                <div>
+                <div className='mx-auto'>
                     <span className="footer-title">Legal</span>
                     <Link className="link link-hover">Terms of use</Link>
                     <Link className="link link-hover">Privacy policy</Link>
                     <Link className="link link-hover">Cookie policy</Link>
                 </div>
             </footer>
-            <footer className="footer px-10 py-4 border-t bg-black text-white">
+            <hr />
+            <footer className="footer px-10 py-4 bg-black text-white max-w-[1440px] mx-auto">
                 <div className="items-center grid-flow-col">
                     <Link to='/'><img className='w-10 h-10 object-cover' src={logo} alt="logo" /></Link>
                     <p><span className='uppercase'>DB-<span>Store</span>.com</span><br />Providing reliable tech since 1992</p>

@@ -121,7 +121,7 @@ const Registration = () => {
                         <input {...register("email", {
                             required: "Email is required"
                         })}
-                            type='text' placeholder='example@gmail.com' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='email'
+                            type='email' placeholder='example@gmail.com' className='text-xl w-full border px-4 py-4 rounded-md border-gray-300 bg-gray-50 text-gray-800 outline-secondary' name='email'
                             aria-invalid={errors.email ? "true" : "false"}
                         />
                         {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
