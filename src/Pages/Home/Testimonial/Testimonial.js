@@ -52,9 +52,10 @@ const Testimonial = () => {
                             }
                         }}
                         modules={[Autoplay]}
-                        className='mt-8 xl:mt-12'
+                        className='mt-8 xl:mt-12 overflow-hidden'
                     >
-                        <SwiperSlide className="p-8 border border-gray-500 rounded-lg">
+                        <SwiperSlide className='overflow-hidden'>
+                            <div className="p-8 border border-gray-500 rounded-lg" data-aos="fade-right" data-aos-duration="1000">
                                 <p className="leading-loose text-gray-700">
                                     “ The product provided was absolutely first class and i am very happy with the result. Highly Recommended! ”
                                 </p>
@@ -67,8 +68,10 @@ const Testimonial = () => {
                                         <span className="text-sm text-gray-700">CTO, Robert Consultency</span>
                                     </div>
                                 </div>
+                            </div>
                         </SwiperSlide>
-                        <SwiperSlide className="p-8 bg-primary border border-transparent rounded-lg">
+                        <SwiperSlide className='overflow-hidden'>
+                            <div className="p-8 bg-primary border border-transparent rounded-lg" data-aos="fade-down" data-aos-duration="1000">
                                 <p className="leading-loose text-white">
                                     “ They offer a resale products which is really helpful . Very much recommend! ”
                                 </p>
@@ -81,9 +84,10 @@ const Testimonial = () => {
                                         <span className="text-sm text-blue-200">CEO, Jeny Consultency</span>
                                     </div>
                                 </div>
-                           
+                            </div>
                         </SwiperSlide>
-                        <SwiperSlide className="p-8 border border-gray-500 rounded-lg border-gary-500">
+                        <SwiperSlide className='overflow-hidden'>
+                            <div className="p-8 border border-gray-500 rounded-lg border-gary-500" data-aos="fade-left" data-aos-duration="1000">
                                 <p className="leading-loose text-gray-700">
                                     “ Very impressed !! Ordering was pleasant and the representative was extremely informed. ”
                                 </p>
@@ -96,6 +100,7 @@ const Testimonial = () => {
                                         <span className="text-sm text-gray-700">Marketing Manager at Stech</span>
                                     </div>
                                 </div>
+                            </div>
                         </SwiperSlide>
                     </Swiper>
                 </div>

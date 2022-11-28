@@ -16,7 +16,7 @@ const Hero = ({ slider }) => {
                     </div>
                 </div>
                 <div className='w-1/2 hidden lg:block'>
-                    <img className='object-cover' src={slider.image} alt="" />
+                    <img className='object-cover' data-aos="zoom-in" src={slider.image} alt="" />
                 </div>
             </div>
         </div>

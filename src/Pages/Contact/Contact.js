@@ -15,9 +15,9 @@ const Contact = () => {
 
                             <div className='lg:flex justify-center items-center'>
                                 <div>
-                                    <div className="mt-6 space-y-8 md:mt-8 ">
+                                    <div className="mt-6 space-y-8 md:mt-8 overflow-hidden">
                                         <p className='text-2xl'>Contact Us</p>
-                                        <p className="flex items-start -mx-2">
+                                        <p className="flex items-start -mx-2" data-aos="fade-down">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -28,7 +28,7 @@ const Contact = () => {
                                             </span>
                                         </p>
 
-                                        <p className="flex items-start -mx-2">
+                                        <p className="flex items-start -mx-2" data-aos="fade-right">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                             </svg>
@@ -36,7 +36,7 @@ const Contact = () => {
                                             <span className="mx-2 text-black truncate w-72">(257) 563-7401</span>
                                         </p>
 
-                                        <p className="flex items-start -mx-2">
+                                        <p className="flex items-start -mx-2" data-aos="fade-left">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                             </svg>
@@ -81,8 +81,8 @@ const Contact = () => {
 
                         </div>
 
-                        <div className="mt-8 lg:w-1/2 lg:mx-6">
-                            <div
+                        <div className="mt-8 lg:w-1/2 lg:mx-6 overflow-hidden">
+                            <div data-aos="fade-left"
                                 className="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg lg:max-w-xl border border-primary shadow-md">
                                 <h1 className="text-lg font-medium text-gray-700">What do you want to ask</h1>
 

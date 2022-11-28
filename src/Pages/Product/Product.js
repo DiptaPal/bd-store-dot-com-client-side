@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import { format, formatDistanceToNow } from 'date-fns';
 import toast from 'react-hot-toast';
 import useBuyer from '../../Hooks/useBuyer';
-import Loader from '../Shared/Loader/Loader';
+import CardLoader from '../Shared/CardLoader/CardLoader';
 
 const Product = ({ product, setBookingProduct, setReportedProduct }) => {
     const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified, date: postDate } = product;
@@ -25,6 +25,10 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
 
 
     const date = format(new Date(), 'PP');
+
+    if(isBuyerLoading){
+        return <CardLoader></CardLoader>
+    }
 
     const handleWishlists = product => {
         const wishlists = {

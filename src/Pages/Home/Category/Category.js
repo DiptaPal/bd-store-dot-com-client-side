@@ -5,7 +5,7 @@ import './Category.css'
 const Category = ({ category }) => {
     const {_id, categoryImage} = category
     return (
-        <Link to={`/categoryProducts/${_id}`} className="cd w-full h-64 relative overflow-hidden cursor-pointer  shadow-lg border-2">
+        <Link to={`/categoryProducts/${_id}`} className="cd w-full h-64 relative overflow-hidden cursor-pointer  shadow-lg border-2" data-aos="fade-up">
             <div className='flex justify-center items-center'>
                 <img src={categoryImage} className='w-64 h-64 object-cover p-3 rounded-full object-center' alt="Shoes" />
             </div>

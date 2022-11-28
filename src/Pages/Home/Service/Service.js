@@ -7,7 +7,7 @@ const Service = () => {
     return (
         <div className='flex items-center justify-around gap-4 border-2 border-gray-100 py-2 flex-wrap mb-32 mt-32'>
             <div className='flex items-center gap-3 px-6 xl:border-r xl:border-primary w-80'>
-                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary'>
+                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary' data-aos="zoom-in" data-aos-duration="1000">
                     <img src={img1} className='h-16 w-16 hover:scale-90 duration-300' alt="" />
                 </div>
                 <div className='flex flex-col justify-between'>
@@ -16,7 +16,7 @@ const Service = () => {
                 </div>
             </div>
             <div className='flex items-center gap-3 px-6 xl:border-r xl:border-primary w-80'>
-                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary'>
+                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary' data-aos="zoom-in" data-aos-duration="1000">
                     <img src={img2} className='h-16 w-16 hover:scale-90 duration-300' alt="" />
                 </div>
                 <div className='flex flex-col justify-between'>
@@ -25,7 +25,7 @@ const Service = () => {
                 </div>
             </div>
             <div className='flex items-center gap-3 px-6 xl:border-r xl:border-primary w-80'>
-                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary'>
+                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary' data-aos="zoom-in" data-aos-duration="1000">
                     <img src={img3} className='h-16 w-16 hover:scale-90 duration-300' alt="" />
                 </div>
                 <div className='flex flex-col justify-between'>
@@ -34,7 +34,7 @@ const Service = () => {
                 </div>
             </div>
             <div className='flex items-center gap-3 px-6 w-80'>
-                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary'>
+                <div className='p-2 rounded-full bg-base-200 border hover:cursor-pointer hover:border-primary' data-aos="zoom-in" data-aos-duration="1000">
                     <img src={img4} className='h-16 w-16 hover:scale-90 duration-300' alt="" />
                 </div>
                 <div className='flex flex-col justify-between'>

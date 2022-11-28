@@ -13,6 +13,7 @@ import toast from 'react-hot-toast';
 import useAdmin from '../../../Hooks/useAdmin';
 import useSeller from '../../../Hooks/useSeller';
 import useBuyer from '../../../Hooks/useBuyer';
+import SideBarLoader from '../../Shared/SideBarLoader/SideBarLoader';
 
 const SideNav = () => {
     const { user, logout } = useContext(AuthContext)
@@ -27,9 +28,20 @@ const SideNav = () => {
             .catch(error => console.log(error))
     }
 
-    const [isAdmin] = useAdmin(user?.email)
-    const [isSeller] = useSeller(user?.email);
-    const [isBuyer] = useBuyer(user?.email);
+    const [isAdmin , isAdminLoading] = useAdmin(user?.email)
+    const [isSeller, isSellerLoading] = useSeller(user?.email);
+    const [isBuyer, isBuyerLoading] = useBuyer(user?.email);
+
+
+    if(isAdminLoading){
+        return <SideBarLoader></SideBarLoader>
+    }
+    if(isSellerLoading){
+        return <SideBarLoader></SideBarLoader>
+    }
+    if(isBuyerLoading){
+        return <SideBarLoader></SideBarLoader>
+    }
 
     return (
         <div className="pt-4 w-80 bg-accent flex justify-between gap-6 flex-col">
