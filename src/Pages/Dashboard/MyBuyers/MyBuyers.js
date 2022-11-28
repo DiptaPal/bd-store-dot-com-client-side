@@ -22,8 +22,6 @@ const MyBuyers = () => {
         }
     })
 
-    console.log(myBuyers);
-
     if (isLoading) {
         return <Loader></Loader>
     }
