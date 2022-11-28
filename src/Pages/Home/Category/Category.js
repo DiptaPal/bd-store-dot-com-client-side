@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Category.css'
 
 const Category = ({ category }) => {
-    const {_id, categoryImage} = category
+    const {_id, categoryImage, categoryName} = category
     return (
         <Link to={`/categoryProducts/${_id}`} className="cd w-full h-64 relative overflow-hidden cursor-pointer  shadow-lg border-2" data-aos="fade-up">
             <div className='flex justify-center items-center'>
@@ -11,7 +11,7 @@ const Category = ({ category }) => {
             </div>
             <div className={`cd-body w-full h-full absolute top-0 bg-[#04050538] backdrop-blur-[5px]`}>
                 <div className='flex justify-center items-center mt-24'>
-                    <button className='btn bg-primary hover:bg-primary border-none text-2xl'>Go Now</button>
+                    <button className='btn bg-primary hover:bg-primary border-none text-2xl'>{categoryName}</button>
                 </div>
             </div>
         </Link>

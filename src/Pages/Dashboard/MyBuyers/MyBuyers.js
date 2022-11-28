@@ -12,7 +12,7 @@ const MyBuyers = () => {
     const { data: myBuyers = [], isLoading } = useQuery({
         queryKey: ['myBuyers', user.email],
         queryFn: async () => {
-            const res = await fetch(`https://bd-store-dot-com-server-side.vercel.app/myBuyers/${user.email}`,{
+            const res = await fetch(`https://bd-store-dot-com-server-side.vercel.app/${user.email}`,{
                 headers: {
                      authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -22,7 +22,7 @@ const MyBuyers = () => {
         }
     })
 
-
+    console.log(myBuyers);
 
     if (isLoading) {
         return <Loader></Loader>

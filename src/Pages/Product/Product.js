@@ -10,7 +10,7 @@ import useBuyer from '../../Hooks/useBuyer';
 import CardLoader from '../Shared/CardLoader/CardLoader';
 
 const Product = ({ product, setBookingProduct, setReportedProduct }) => {
-    const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified, date: postDate } = product;
+    const { productName, productImage, location, quality, resalePrice, originalPrice, yearsOfUsed, username, verified, date: postDate, categoryName } = product;
 
     const postedDate = formatDistanceToNow(
         new Date(postDate),
@@ -116,6 +116,7 @@ const Product = ({ product, setBookingProduct, setReportedProduct }) => {
                 </div>
 
                 <div className='flex flex-col gap-2 flex-wrap'>
+                    <p>Brand: <span className='font-semibold uppercase text-primary'>{categoryName}</span></p>
                     <p>Used: <span className='font-semibold'>{yearsOfUsed}</span></p>
                     <div className="tooltip" data-tip={fullDate}>
                         <p className='text-left'>Posted: <span className='font-semibold'>{postedDate} ago</span></p>

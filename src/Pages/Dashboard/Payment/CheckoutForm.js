@@ -11,7 +11,7 @@ const CheckoutForm = ({ booking }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
-    const { productPrice, productName, productId, customerEmail, _id } = booking;
+    const { productPrice,customerName, productName, productId, customerEmail, _id } = booking;
 
     const [clientSecret, setClientSecret] = useState("");
     const navigate = useNavigate();
@@ -78,9 +78,11 @@ const CheckoutForm = ({ booking }) => {
         if (paymentIntent.status === 'succeeded') {
             const payment = {
                 transactionId: paymentIntent.id,
+                productPrice,
                 productName,
                 productId,
                 customerEmail,
+                customerName,
                 bookingId: _id
 
             }
