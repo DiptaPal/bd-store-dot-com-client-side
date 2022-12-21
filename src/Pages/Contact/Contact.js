@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <div>
             <section className="my-10 bg-gray-200">
-                <div className="container px-6 py-12 mx-auto">
+                <div className="container px-6 py-5 mx-auto">
                     <div className="lg:flex lg:items-center lg:-mx-6">
                         <div className="lg:w-1/2 lg:mx-6">
                             <h1 className="text-3xl font-semibold text-black capitalize lg:text-5xl">
@@ -81,7 +81,7 @@ const Contact = () => {
 
                         </div>
 
-                        <div className="mt-8 lg:w-1/2 lg:mx-6 overflow-hidden">
+                        <div className="lg:w-1/2 lg:mx-6 overflow-hidden">
                             <div data-aos="fade-left"
                                 className="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg lg:max-w-xl border border-primary shadow-md">
                                 <h1 className="text-lg font-medium text-gray-700">What do you want to ask</h1>
@@ -99,7 +99,7 @@ const Contact = () => {
 
                                     <div className="w-full mt-6">
                                         <label className="block mb-2 text-sm text-black">Message</label>
-                                        <textarea className="block w-full resize-none h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                                        <textarea className="block w-full resize-none h-20 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-24 focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                                     </div>
 
                                     <div className="w-full text-center hover:cursor-pointer px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
